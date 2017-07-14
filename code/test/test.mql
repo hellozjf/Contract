@@ -1,0 +1,19 @@
+set context user creator;
+
+add attribute Bmbim_contract_id
+type String;
+
+add type Bmbim_contract
+attribute Bmbim_contract_id;
+
+add policy Bmbim_contract
+type Bmbim_contract
+format all
+sequence 1,2,3,...
+state contract_info_input
+owner all 
+public read,show;
+
+add table Bmbim_contract system
+column
+name Type

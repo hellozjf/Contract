@@ -1,0 +1,46 @@
+set context user creator;
+
+# 删除项目Name自动生成器（项目Name不等同于项目名称，前者是项目BO对象Type,Name,Revision的一部分，后者是项目BO对象的属性）
+del businessobject "eService Number Generator" type_Bmbim_bid 1;
+del businessobject "eService Object Generator" type_Bmbim_bid 1;
+
+# 将项目按钮从My Enovia移除
+modify menu "My Enovia" remove command Bmbim_bid;
+
+# 删除项目按钮
+del command Bmbim_bid;
+
+# 删除项目工具栏
+del menu Bmbim_bid_toolbar;
+
+# 删除项目删除按钮
+del command Bmbim_bid_delete;
+
+# 删除项目添加按钮
+del command Bmbim_bid_create;
+
+# 删除项目查询
+del inquiry Bmbim_bid;
+
+# 删除项目表格
+del table Bmbim_bid system;
+
+# 删除项目报表
+del form Bmbim_bid;
+
+# 删除项目策略
+del policy Bmbim_bid;
+
+# 删除项目类型
+del type Bmbim_bid;
+
+# 删除项目相关的属性
+del attribute Bmbim_bid_competitorprice;
+del attribute Bmbim_bid_openperson;
+del attribute Bmbim_bid_winprice;
+del attribute Bmbim_bid_limitprice;
+del attribute Bmbim_bid_iswin;
+del attribute Bmbim_bid_opentime;
+del attribute Bmbim_bid_clientname;
+del attribute Bmbim_bid_name;
+del attribute Bmbim_bid_id;

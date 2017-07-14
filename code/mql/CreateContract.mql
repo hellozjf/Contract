@@ -8,7 +8,7 @@ modify role client assign person des1;
 # 添加合同相关的属性
 add attribute Bmbim_contract_id 
 	type string 
-	description 合同号;
+	description 合同编号;
 
 add attribute Bmbim_contract_name 
 	type string 

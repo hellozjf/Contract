@@ -1,0 +1,44 @@
+set context user creator;
+
+# 删除收据Name自动生成器（收据Name不等同于收据名称，前者是收据BO对象Type,Name,Revision的一部分，后者是收据BO对象的属性）
+del businessobject "eService Number Generator" type_Bmbim_receipt 1;
+del businessobject "eService Object Generator" type_Bmbim_receipt 1;
+
+# 将收据按钮从My Enovia移除
+modify menu "My Enovia" remove command Bmbim_receipt;
+
+# 删除收据按钮
+del command Bmbim_receipt;
+
+# 删除收据工具栏
+del menu Bmbim_receipt_toolbar;
+
+# 删除收据删除按钮
+del command Bmbim_receipt_delete;
+
+# 删除收据添加按钮
+del command Bmbim_receipt_create;
+
+# 删除收据查询
+del inquiry Bmbim_receipt;
+
+# 删除收据表格
+del table Bmbim_receipt system;
+
+# 删除收据报表
+del form Bmbim_receipt;
+
+# 删除收据策略
+del policy Bmbim_receipt;
+
+# 删除收据类型
+del type Bmbim_receipt;
+
+# 删除收据相关的属性
+del attribute Bmbim_receipt_remark;
+del attribute Bmbim_receipt_actualdate;
+del attribute Bmbim_receipt_actualmoney;
+del attribute Bmbim_receipt_plandate;
+del attribute Bmbim_receipt_planmoney;
+del attribute Bmbim_receipt_type;
+del attribute Bmbim_receipt_id;

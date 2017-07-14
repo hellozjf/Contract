@@ -33,7 +33,8 @@ add attribute Bmbim_receipt_actualdate
 
 add attribute Bmbim_receipt_remark
 	type string 
-	description 收款项备注;
+	description 收款项备注
+	multiline;
 
 # 添加收款项类型
 add type Bmbim_receipt 

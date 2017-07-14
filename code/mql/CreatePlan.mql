@@ -1,0 +1,186 @@
+set context user creator;
+
+# 添加计划相关的属性
+add attribute Bmbim_plan_id 
+	description 计划编号
+	type string;
+
+add attribute Bmbim_plan_year 
+	description 计划年份
+	type string;
+
+add attribute Bmbim_plan_totalamount 
+    description 当年计划签订总额（万元）
+    type real;
+
+add attribute Bmbim_plan_totalpayment 
+    description 当年计划收款总额（万元）
+    type real;
+
+# 添加计划类型
+add type Bmbim_plan 
+	description 计划 
+	attribute Bmbim_plan_id, Bmbim_plan_year, Bmbim_plan_totalamount, Bmbim_plan_totalpayment;
+
+# 添加计划策略
+add policy Bmbim_plan 
+	description 计划 
+	type Bmbim_plan 
+	format all 
+	sequence 1,2,3,...
+	state plan
+		owner all 
+		public read,show;
+
+# 添加计划报表
+add form Bmbim_plan web
+	description 计划
+	type Bmbim_plan
+    field name Bmbim_plan_id
+        label emxFramework.Attribute.Bmbim_plan_id
+        businessobject attribute[Bmbim_plan_id]
+        setting "Registered Suite" "Framework"
+        setting "Field Type" "attribute"
+        setting "Editable" "true"
+    field name Bmbim_plan_year
+        label emxFramework.Attribute.Bmbim_plan_year
+        businessobject attribute[Bmbim_plan_year]
+        setting "Registered Suite" "Framework"
+        setting "Field Type" "attribute"
+        setting "Editable" "true"
+    field name Bmbim_plan_totalamount
+        label emxFramework.Attribute.Bmbim_plan_totalamount
+        businessobject attribute[Bmbim_plan_totalamount]
+        setting "Registered Suite" "Framework"
+        setting "Field Type" "attribute"
+        setting "Editable" "true"
+        setting "format" "numeric"
+    field name Bmbim_plan_totalpayment
+        label emxFramework.Attribute.Bmbim_plan_totalpayment
+        businessobject attribute[Bmbim_plan_totalpayment]
+        setting "Registered Suite" "Framework"
+        setting "Field Type" "attribute"
+        setting "Editable" "true"
+        setting "format" "numeric";
+
+# 添加计划表格
+add table Bmbim_plan system 
+    column name Bmbim_plan_id
+        label emxFramework.Attribute.Bmbim_plan_id
+        businessobject attribute[Bmbim_plan_id]
+        setting "Registered Suite" "Framework"
+        setting "Field Type" "attribute"
+        setting "Editable" "true"
+    column name Bmbim_plan_year
+        label emxFramework.Attribute.Bmbim_plan_year
+        businessobject attribute[Bmbim_plan_year]
+        setting "Registered Suite" "Framework"
+        setting "Editable" "true"
+        setting "Field Type" "attribute"
+    column name Bmbim_plan_totalamount
+        label emxFramework.Attribute.Bmbim_plan_totalamount
+        businessobject attribute[Bmbim_plan_totalamount]
+        setting "Registered Suite" "Framework"
+        setting "Editable" "true"
+        setting "Field Type" "attribute"
+        setting "format" "numeric"
+    column name Bmbim_plan_totalpayment
+        label emxFramework.Attribute.Bmbim_plan_totalpayment
+        businessobject attribute[Bmbim_plan_totalpayment]
+        setting "Registered Suite" "Framework"
+        setting "Editable" "true"
+        setting "Field Type" "attribute"
+        setting "format" "numeric"
+    column name Bmbim_plan_actualtotalamount
+        label emxFramework.Attribute.Bmbim_plan_actualtotalamount
+        setting "Registered Suite" "Framework"
+        setting "Editable" "true"
+        setting "Column Type" "program"
+        setting "program" "Bmbim_plan"
+        setting "function" "getActualTotalAmount"
+    column name Bmbim_plan_actualtotalpayment
+        label emxFramework.Attribute.Bmbim_plan_actualtotalpayment
+        setting "Registered Suite" "Framework"
+        setting "Editable" "true"
+        setting "Column Type" "program"
+        setting "program" "Bmbim_plan"
+        setting "function" "getActualTotalPayment"
+    column name Bmbim_plan_totalamountpecentage
+        label emxFramework.Attribute.Bmbim_plan_totalamountpecentage
+        setting "Registered Suite" "Framework"
+        setting "Editable" "true"
+        setting "Column Type" "program"
+        setting "program" "Bmbim_plan"
+        setting "function" "getTotalAmountPecentage"
+    column name Bmbim_plan_totalpaymentpecentage
+        label emxFramework.Attribute.Bmbim_plan_totalpaymentpecentage
+        setting "Registered Suite" "Framework"
+        setting "Editable" "true"
+        setting "Column Type" "program"
+        setting "program" "Bmbim_plan"
+        setting "function" "getTotalPaymentPecentage";
+
+# 添加计划查询
+add inquiry Bmbim_plan
+	description 查询所有计划
+	pattern *|*|*|${OID}
+	format ${OID}
+	code "temp query bus Bmbim_plan * * select id dump |;"
+
+# 添加计划添加按钮
+add command Bmbim_plan_create
+	description 添加计划
+	label emxFramework.Command.Bmbim_plan_create
+	href "${COMMON_DIR}/emxCreate.jsp?type=type_Bmbim_plan&policy=policy_Bmbim_plan&nameField=both&form=Bmbim_plan&autoNameChecked=true&submitAction=refreshCaller"
+	setting "Image" "${COMMON_DIR}/images/iconActionCreate.png"
+	setting "Submit" "true"
+	setting "Target Location" "slidein";
+
+# 添加计划删除按钮
+add command Bmbim_plan_delete
+	description 删除计划
+	label emxFramework.Command.Bmbim_plan_delete
+	href "${COMMON_DIR}/emxDelete.jsp"
+	setting "Image" "${COMMON_DIR}/images/iconActionDelete.gif"
+	setting "Row Select" "Multi"
+	setting "Submit" "true"
+	setting "Target Location" "listHidden";
+
+# 添加计划工具栏
+add menu Bmbim_plan_toolbar
+	description "包含添加和删除按钮的工具栏"
+	label Bmbim_plan_toolbar
+	command Bmbim_plan_create, Bmbim_plan_delete;
+
+# 添加计划按钮
+add command Bmbim_plan
+	description 查询所有计划
+	label emxFramework.Command.Bmbim_plan
+	href "${COMMON_DIR}/emxIndentedTable.jsp?inquiry=Bmbim_plan&table=Bmbim_plan&editLink=true&selection=multiple&toolbar=Bmbim_plan_toolbar&freezePane=Bmbim_plan_id&header=emxFramework.String.Bmbim_plan_header"
+	setting "Registered Suite" "Framework"
+	setting "Target Location" "content";
+
+# 将计划按钮添加到My Enovia中
+modify menu "My Enovia"
+	add command Bmbim_plan
+	order command Bmbim_plan 4;
+
+# 增加计划Name自动生成器（计划Name不等同于计划名称，前者是计划BO对象Type,Name,Revision的一部分，后者是计划BO对象的属性）
+add businessobject "eService Object Generator" type_Bmbim_plan 1 
+	policy "eService Object Generator" 
+	vault "eService Production"
+	"eService Safety Vault" "vault_eServiceAdministration"
+	"eService Safety Policy" "policy_Bmbim_plan"
+	"eService Retry Delay" "1000"
+	"eService Retry Count" "5"
+	"eService Processing Time Limit" "60"
+	"eService Name Prefix" "Bmbim_plan-";
+
+add businessobject "eService Number Generator" type_Bmbim_plan 1 
+	policy "eService Object Generator" 
+	vault "eService Production"
+	"eService Next Number" "00000001";
+
+connect businessobject "eService Object Generator" type_Bmbim_plan 1 
+	relationship "eService Number Generator"
+	to "eService Number Generator" type_Bmbim_plan 1;
