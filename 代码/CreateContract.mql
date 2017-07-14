@@ -1,0 +1,311 @@
+set context user creator;
+
+# 增加分院领导、总院领导和业主，他们后面要传阅合同的
+modify role branchleader assign person des1;
+modify role generalleader assign person des1;
+modify role client assign person des1;
+
+# 添加合同相关的属性
+add attribute Bmbim_contract_id 
+	type string 
+	description 合同号;
+
+add attribute Bmbim_contract_name 
+	type string 
+	description 合同名称;
+
+add attribute Bmbim_contract_state 
+	type string 
+	description 合同状态;
+
+add attribute Bmbim_contract_signdate 
+	type date 
+	description 我院签定时间;
+
+add attribute Bmbim_contract_clientsign 
+	type date 
+	description 业主签定时间;
+
+add attribute Bmbim_contract_projectscale 
+	type string 
+	description 建筑规模 
+	range == 重大项目 
+	range == 一般项目 
+	range == 零小项目;
+
+add attribute Bmbim_contract_type 
+	type string 
+	description 合同类型
+	range == 规划 
+	range == 测量 
+	range == 港口
+	range == 航道
+	range == 枢纽;
+
+add attribute Bmbim_contract_clientname 
+	type string 
+	description 业主名称;
+
+add attribute Bmbim_contract_meetingcharge
+	type real 
+	description 会务费（万元）;
+
+add attribute Bmbim_contract_totalamount 
+	type real 
+	description 合同总金额（万元）;
+
+# 添加合同类型
+add type Bmbim_contract 
+	description 合同 
+	attribute Bmbim_contract_id, Bmbim_contract_name, Bmbim_contract_state, Bmbim_contract_signdate, Bmbim_contract_clientsign, Bmbim_contract_projectscale, Bmbim_contract_type, Bmbim_contract_clientname, Bmbim_contract_meetingcharge, Bmbim_contract_totalamount;
+
+# 添加合同策略
+add policy Bmbim_contract 
+	description 合同 
+	type Bmbim_contract 
+	format all 
+	sequence 1,2,3,...
+	state contract_info_input 
+		owner all 
+		public read,show
+	state contract_branchleader_review 
+		owner read,show 
+		public read,show 
+		user branchleader all
+	state contract_generalleader_review 
+		owner read,show 
+		public read,show 
+		user generalleader all
+	state contract_client_review 
+		owner read,show 
+		public read,show 
+		user client all
+	state contract_official_signed 
+		owner all
+		public read,show 
+	state contract_wait_payment 
+		owner all
+		public read,show 
+	state contract_final_end 
+		owner all
+		public read,show;
+
+# 添加合同报表
+add form Bmbim_contract web
+	description 合同
+	type Bmbim_contract
+	field name Bmbim_contract_id
+		label emxFramework.Attribute.Bmbim_contract_id
+		businessobject attribute[Bmbim_contract_id]
+		setting "Field Type" "attribute"
+		setting "Editable" "true"
+		setting "Registered Suite" "Framework"
+	field name Bmbim_contract_name
+		label emxFramework.Attribute.Bmbim_contract_name
+		businessobject attribute[Bmbim_contract_name]
+		setting "Field Type" "attribute"
+		setting "Editable" "true"
+		setting "Registered Suite" "Framework"
+	field name Bmbim_contract_signdate
+		label emxFramework.Attribute.Bmbim_contract_signdate
+		businessobject attribute[Bmbim_contract_signdate]
+		setting "Field Type" "attribute"
+		setting "Editable" "true"
+		setting "Registered Suite" "Framework"
+		setting "format" "date"
+	field name Bmbim_contract_clientsign
+		label emxFramework.Attribute.Bmbim_contract_clientsign
+		businessobject attribute[Bmbim_contract_clientsign]
+		setting "Field Type" "attribute"
+		setting "Editable" "true"
+		setting "Registered Suite" "Framework"
+		setting "format" "date"
+	field name Bmbim_contract_projectscale
+		label emxFramework.Attribute.Bmbim_contract_projectscale
+		businessobject attribute[Bmbim_contract_projectscale]
+		setting "Field Type" "attribute"
+		setting "Editable" "true"
+		setting "Registered Suite" "Framework"
+		setting "Input Type" "combobox"
+	field name Bmbim_contract_type
+		label emxFramework.Attribute.Bmbim_contract_type
+		businessobject attribute[Bmbim_contract_type]
+		setting "Field Type" "attribute"
+		setting "Editable" "true"
+		setting "Registered Suite" "Framework"
+		setting "Input Type" "combobox"
+	field name Bmbim_contract_clientname
+		label emxFramework.Attribute.Bmbim_contract_clientname
+		businessobject attribute[Bmbim_contract_clientname]
+		setting "Field Type" "attribute"
+		setting "Editable" "true"
+		setting "Registered Suite" "Framework"
+	field name Bmbim_contract_meetingcharge
+		label emxFramework.Attribute.Bmbim_contract_meetingcharge
+		businessobject attribute[Bmbim_contract_meetingcharge]
+		setting "Field Type" "attribute"
+		setting "Editable" "true"
+		setting "Registered Suite" "Framework"
+		setting "format" "numeric"
+	field name Bmbim_contract_totalamount 
+		label emxFramework.Attribute.Bmbim_contract_totalamount 
+		businessobject attribute[Bmbim_contract_totalamount]
+		setting "Field Type" "attribute"
+		setting "Editable" "true"
+		setting "Registered Suite" "Framework"
+		setting "format" "numeric";
+
+# 添加合同表格
+add table Bmbim_contract system 
+	column name Bmbim_contract_id
+		label emxFramework.Attribute.Bmbim_contract_id
+		businessobject attribute[Bmbim_contract_id]
+		setting "Field Type" "attribute"
+		setting "Editable" "false"
+		setting "Registered Suite" "Framework"
+	column name Bmbim_contract_name
+		label emxFramework.Attribute.Bmbim_contract_name
+		businessobject attribute[Bmbim_contract_name]
+		setting "Field Type" "attribute"
+		setting "Editable" "false"
+		setting "Registered Suite" "Framework"
+	column name Bmbim_contract_state
+		label emxFramework.Attribute.Bmbim_contract_state
+		businessobject current
+		setting "Field Type" "basic"
+		setting "Editable" "false"
+		setting "Registered Suite" "Framework"
+	column name Bmbim_contract_received
+		label emxFramework.Attribute.Bmbim_contract_received
+		setting "Editable" "false"
+		setting "Registered Suite" "Framework"
+		setting "Column Type" "program"
+		setting "program" "Bmbim_contract"
+		setting "function" "getReceived"
+	column name Bmbim_contract_totalamount
+		label emxFramework.Attribute.Bmbim_contract_totalamount
+		businessobject attribute[Bmbim_contract_totalamount]
+		setting "Field Type" "attribute"
+		setting "Editable" "false"
+		setting "Registered Suite" "Framework"
+		setting "format" "numeric"
+	column name Bmbim_contract_signdate
+		label emxFramework.Attribute.Bmbim_contract_signdate
+		businessobject attribute[Bmbim_contract_signdate]
+		setting "Field Type" "attribute"
+		setting "Editable" "false"
+		setting "Registered Suite" "Framework"
+		setting "format" "date"
+	column name Bmbim_contract_clientsign
+		label emxFramework.Attribute.Bmbim_contract_clientsign
+		businessobject attribute[Bmbim_contract_clientsign]
+		setting "Field Type" "attribute"
+		setting "Editable" "false"
+		setting "Registered Suite" "Framework"
+		setting "format" "date"
+	column name Bmbim_contract_projectscale
+		label emxFramework.Attribute.Bmbim_contract_projectscale
+		businessobject attribute[Bmbim_contract_projectscale]
+		setting "Field Type" "attribute"
+		setting "Editable" "true"
+		setting "Registered Suite" "Framework"
+		setting "Input Type" "combobox"
+	column name Bmbim_contract_type
+		label emxFramework.Attribute.Bmbim_contract_type
+		businessobject attribute[Bmbim_contract_type]
+		setting "Field Type" "attribute"
+		setting "Editable" "true"
+		setting "Registered Suite" "Framework"
+		setting "Input Type" "combobox"
+	column name Bmbim_contract_clientname
+		label emxFramework.Attribute.Bmbim_contract_clientname
+		businessobject attribute[Bmbim_contract_clientname]
+		setting "Field Type" "attribute"
+		setting "Editable" "false"
+		setting "Registered Suite" "Framework"
+	column name Bmbim_contract_meetingcharge
+		label emxFramework.Attribute.Bmbim_contract_meetingcharge
+		businessobject attribute[Bmbim_contract_meetingcharge]
+		setting "Field Type" "attribute"
+		setting "Editable" "false"
+		setting "Registered Suite" "Framework"
+	column name Bmbim_contract_receipts
+		label emxFramework.Attribute.Bmbim_contract_receipts
+		setting "Registered Suite" "Framework"
+		setting "Column Type" "icon"
+		setting "Column Icon" "images/iconNewWindow.gif"
+	column name Bmbim_contract_projects
+		label emxFramework.Attribute.Bmbim_contract_projects
+		setting "Registered Suite" "Framework"
+		setting "Column Type" "icon"
+		setting "Column Icon" "images/iconNewWindow.gif"
+	column name Bmbim_contract_states
+		label emxFramework.Attribute.Bmbim_contract_states
+		setting "Registered Suite" "Framework"
+		setting "Column Type" "icon"
+		setting "Column Icon" "images/iconNewWindow.gif";
+
+# 添加合同查询
+add inquiry Bmbim_contract
+	description 查询所有合同
+	pattern *|*|*|${OID}
+	format ${OID}
+	code "temp query bus Bmbim_contract * * select id dump |;"
+
+# 添加合同添加按钮
+add command Bmbim_contract_create
+	description 添加合同
+	label emxFramework.Command.Bmbim_contract_create
+	href "${COMMON_DIR}/emxCreate.jsp?type=type_Bmbim_contract&policy=policy_Bmbim_contract&nameField=both&form=Bmbim_contract&autoNameChecked=true&submitAction=refreshCaller"
+	setting "Image" "${COMMON_DIR}/images/iconActionCreate.png"
+	setting "Submit" "true"
+	setting "Target Location" "slidein";
+
+# 添加合同删除按钮
+add command Bmbim_contract_delete
+	description 删除合同
+	label emxFramework.Command.Bmbim_contract_delete
+	href "${COMMON_DIR}/emxDelete.jsp"
+	setting "Image" "${COMMON_DIR}/images/iconActionDelete.gif"
+	setting "Row Select" "Multi"
+	setting "Submit" "true"
+	setting "Target Location" "listHidden";
+
+# 添加合同工具栏
+add menu Bmbim_contract_toolbar
+	description "包含添加和删除按钮的工具栏"
+	label Bmbim_contract_toolbar
+	command Bmbim_contract_create, Bmbim_contract_delete;
+
+# 添加合同按钮
+add command Bmbim_contract
+	description 查询所有合同
+	label emxFramework.Command.Bmbim_contract
+	href "${COMMON_DIR}/emxIndentedTable.jsp?inquiry=Bmbim_contract&table=Bmbim_contract&editLink=true&selection=multiple&toolbar=Bmbim_contract_toolbar&freezePane=Bmbim_contract_id&header=emxFramework.String.Bmbim_contract_header"
+	setting "Registered Suite" "Framework"
+	setting "Target Location" "content";
+
+# 将合同按钮添加到My Enovia中
+modify menu "My Enovia"
+	add command Bmbim_contract
+	order command Bmbim_contract 1;
+
+# 增加合同Name自动生成器（合同Name不等同于合同名称，前者是合同BO对象Type,Name,Revision的一部分，后者是合同BO对象的属性）
+add businessobject "eService Object Generator" type_Bmbim_contract 1 
+	policy "eService Object Generator" 
+	vault "eService Production"
+	"eService Safety Vault" "vault_eServiceAdministration"
+	"eService Safety Policy" "policy_Bmbim_contract"
+	"eService Retry Delay" "1000"
+	"eService Retry Count" "5"
+	"eService Processing Time Limit" "60"
+	"eService Name Prefix" "Bmbim_contract-";
+
+add businessobject "eService Number Generator" type_Bmbim_contract 1 
+	policy "eService Object Generator" 
+	vault "eService Production"
+	"eService Next Number" "00000001";
+
+connect businessobject "eService Object Generator" type_Bmbim_contract 1 
+	relationship "eService Number Generator"
+	to "eService Number Generator" type_Bmbim_contract 1;
