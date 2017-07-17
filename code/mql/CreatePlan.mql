@@ -10,12 +10,12 @@ add attribute Bmbim_plan_year
 	type string;
 
 add attribute Bmbim_plan_totalamount 
-    description 当年计划签订总额（万元）
-    type real;
+	description 当年计划签订总额（万元）
+	type real;
 
 add attribute Bmbim_plan_totalpayment 
-    description 当年计划收款总额（万元）
-    type real;
+	description 当年计划收款总额（万元）
+	type real;
 
 # 添加计划类型
 add type Bmbim_plan 
@@ -36,89 +36,89 @@ add policy Bmbim_plan
 add form Bmbim_plan web
 	description 计划
 	type Bmbim_plan
-    field name Bmbim_plan_id
-        label emxFramework.Attribute.Bmbim_plan_id
-        businessobject attribute[Bmbim_plan_id]
-        setting "Registered Suite" "Framework"
-        setting "Field Type" "attribute"
-        setting "Editable" "true"
-    field name Bmbim_plan_year
-        label emxFramework.Attribute.Bmbim_plan_year
-        businessobject attribute[Bmbim_plan_year]
-        setting "Registered Suite" "Framework"
-        setting "Field Type" "attribute"
-        setting "Editable" "true"
-    field name Bmbim_plan_totalamount
-        label emxFramework.Attribute.Bmbim_plan_totalamount
-        businessobject attribute[Bmbim_plan_totalamount]
-        setting "Registered Suite" "Framework"
-        setting "Field Type" "attribute"
-        setting "Editable" "true"
-        setting "format" "numeric"
-    field name Bmbim_plan_totalpayment
-        label emxFramework.Attribute.Bmbim_plan_totalpayment
-        businessobject attribute[Bmbim_plan_totalpayment]
-        setting "Registered Suite" "Framework"
-        setting "Field Type" "attribute"
-        setting "Editable" "true"
-        setting "format" "numeric";
+	field name Bmbim_plan_id
+		label emxFramework.Attribute.Bmbim_plan_id
+		businessobject attribute[Bmbim_plan_id]
+		setting "Registered Suite" "Framework"
+		setting "Editable" "true"
+		setting "Field Type" "attribute"
+	field name Bmbim_plan_year
+		label emxFramework.Attribute.Bmbim_plan_year
+		businessobject attribute[Bmbim_plan_year]
+		setting "Registered Suite" "Framework"
+		setting "Editable" "true"
+		setting "Field Type" "attribute"
+	field name Bmbim_plan_totalamount
+		label emxFramework.Attribute.Bmbim_plan_totalamount
+		businessobject attribute[Bmbim_plan_totalamount]
+		setting "Registered Suite" "Framework"
+		setting "Editable" "true"
+		setting "Field Type" "attribute"
+		setting "format" "numeric"
+	field name Bmbim_plan_totalpayment
+		label emxFramework.Attribute.Bmbim_plan_totalpayment
+		businessobject attribute[Bmbim_plan_totalpayment]
+		setting "Registered Suite" "Framework"
+		setting "Editable" "true"
+		setting "Field Type" "attribute"
+		setting "format" "numeric";
 
 # 添加计划表格
 add table Bmbim_plan system 
-    column name Bmbim_plan_id
-        label emxFramework.Attribute.Bmbim_plan_id
-        businessobject attribute[Bmbim_plan_id]
-        setting "Registered Suite" "Framework"
-        setting "Field Type" "attribute"
-        setting "Editable" "true"
-    column name Bmbim_plan_year
-        label emxFramework.Attribute.Bmbim_plan_year
-        businessobject attribute[Bmbim_plan_year]
-        setting "Registered Suite" "Framework"
-        setting "Editable" "true"
-        setting "Field Type" "attribute"
-    column name Bmbim_plan_totalamount
-        label emxFramework.Attribute.Bmbim_plan_totalamount
-        businessobject attribute[Bmbim_plan_totalamount]
-        setting "Registered Suite" "Framework"
-        setting "Editable" "true"
-        setting "Field Type" "attribute"
-        setting "format" "numeric"
-    column name Bmbim_plan_totalpayment
-        label emxFramework.Attribute.Bmbim_plan_totalpayment
-        businessobject attribute[Bmbim_plan_totalpayment]
-        setting "Registered Suite" "Framework"
-        setting "Editable" "true"
-        setting "Field Type" "attribute"
-        setting "format" "numeric"
-    column name Bmbim_plan_actualtotalamount
-        label emxFramework.Attribute.Bmbim_plan_actualtotalamount
-        setting "Registered Suite" "Framework"
-        setting "Editable" "true"
-        setting "Column Type" "program"
-        setting "program" "Bmbim_plan"
-        setting "function" "getActualTotalAmount"
-    column name Bmbim_plan_actualtotalpayment
-        label emxFramework.Attribute.Bmbim_plan_actualtotalpayment
-        setting "Registered Suite" "Framework"
-        setting "Editable" "true"
-        setting "Column Type" "program"
-        setting "program" "Bmbim_plan"
-        setting "function" "getActualTotalPayment"
-    column name Bmbim_plan_totalamountpecentage
-        label emxFramework.Attribute.Bmbim_plan_totalamountpecentage
-        setting "Registered Suite" "Framework"
-        setting "Editable" "true"
-        setting "Column Type" "program"
-        setting "program" "Bmbim_plan"
-        setting "function" "getTotalAmountPecentage"
-    column name Bmbim_plan_totalpaymentpecentage
-        label emxFramework.Attribute.Bmbim_plan_totalpaymentpecentage
-        setting "Registered Suite" "Framework"
-        setting "Editable" "true"
-        setting "Column Type" "program"
-        setting "program" "Bmbim_plan"
-        setting "function" "getTotalPaymentPecentage";
+	column name Bmbim_plan_id
+		label emxFramework.Attribute.Bmbim_plan_id
+		businessobject attribute[Bmbim_plan_id]
+		setting "Registered Suite" "Framework"
+		setting "Editable" "true"
+		setting "Field Type" "attribute"
+	column name Bmbim_plan_year
+		label emxFramework.Attribute.Bmbim_plan_year
+		businessobject attribute[Bmbim_plan_year]
+		setting "Registered Suite" "Framework"
+		setting "Editable" "true"
+	        setting "Field Type" "attribute"
+	column name Bmbim_plan_totalamount
+		label emxFramework.Attribute.Bmbim_plan_totalamount
+		businessobject attribute[Bmbim_plan_totalamount]
+		setting "Registered Suite" "Framework"
+		setting "Editable" "true"
+		setting "Field Type" "attribute"
+		setting "format" "numeric"
+	column name Bmbim_plan_totalpayment
+		label emxFramework.Attribute.Bmbim_plan_totalpayment
+		businessobject attribute[Bmbim_plan_totalpayment]
+		setting "Registered Suite" "Framework"
+		setting "Editable" "true"
+		setting "Field Type" "attribute"
+		setting "format" "numeric"
+	column name Bmbim_plan_actualtotalamount
+		label emxFramework.Attribute.Bmbim_plan_actualtotalamount
+		setting "Registered Suite" "Framework"
+		setting "Editable" "true"
+		setting "Column Type" "program"
+		setting "program" "Bmbim_plan"
+		setting "function" "getActualTotalAmount"
+	column name Bmbim_plan_actualtotalpayment
+		label emxFramework.Attribute.Bmbim_plan_actualtotalpayment
+		setting "Registered Suite" "Framework"
+		setting "Editable" "true"
+		setting "Column Type" "program"
+		setting "program" "Bmbim_plan"
+		setting "function" "getActualTotalPayment"
+	column name Bmbim_plan_totalamountpecentage
+		label emxFramework.Attribute.Bmbim_plan_totalamountpercentage
+		setting "Registered Suite" "Framework"
+		setting "Editable" "true"
+		setting "Column Type" "program"
+		setting "program" "Bmbim_plan"
+		setting "function" "getTotalAmountPercentage"
+	column name Bmbim_plan_totalpaymentpecentage
+		label emxFramework.Attribute.Bmbim_plan_totalpaymentpercentage
+		setting "Registered Suite" "Framework"
+		setting "Editable" "true"
+		setting "Column Type" "program"
+		setting "program" "Bmbim_plan"
+		setting "function" "getTotalPaymentPercentage";
 
 # 添加计划查询
 add inquiry Bmbim_plan
@@ -163,7 +163,7 @@ add command Bmbim_plan
 # 将计划按钮添加到My Enovia中
 modify menu "My Enovia"
 	add command Bmbim_plan
-	order command Bmbim_plan 4;
+	order command Bmbim_plan 2;
 
 # 增加计划Name自动生成器（计划Name不等同于计划名称，前者是计划BO对象Type,Name,Revision的一部分，后者是计划BO对象的属性）
 add businessobject "eService Object Generator" type_Bmbim_plan 1 

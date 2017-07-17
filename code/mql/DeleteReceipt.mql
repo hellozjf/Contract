@@ -5,7 +5,7 @@ del businessobject "eService Number Generator" type_Bmbim_receipt 1;
 del businessobject "eService Object Generator" type_Bmbim_receipt 1;
 
 # 将收据按钮从My Enovia移除
-modify menu "My Enovia" remove command Bmbim_receipt;
+#modify menu "My Enovia" remove command Bmbim_receipt;
 
 # 删除收据按钮
 del command Bmbim_receipt;
@@ -27,6 +27,9 @@ del table Bmbim_receipt system;
 
 # 删除收据报表
 del form Bmbim_receipt;
+
+# 删除合同到收款项的关系
+del relationship Bmbim_contract_to_receipt;
 
 # 删除收据策略
 del policy Bmbim_receipt;

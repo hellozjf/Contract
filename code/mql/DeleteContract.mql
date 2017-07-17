@@ -40,7 +40,6 @@ del type Bmbim_contract;
 # 删除合同相关的属性
 del attribute Bmbim_contract_id;
 del attribute Bmbim_contract_name;
-del attribute Bmbim_contract_state;
 del attribute Bmbim_contract_signdate;
 del attribute Bmbim_contract_clientsign;
 del attribute Bmbim_contract_projectscale;

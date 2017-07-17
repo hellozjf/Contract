@@ -5,7 +5,7 @@ del businessobject "eService Number Generator" type_Bmbim_project 1;
 del businessobject "eService Object Generator" type_Bmbim_project 1;
 
 # 将项目按钮从My Enovia移除
-modify menu "My Enovia" remove command Bmbim_project;
+#modify menu "My Enovia" remove command Bmbim_project;
 
 # 删除项目按钮
 del command Bmbim_project;
@@ -28,6 +28,9 @@ del table Bmbim_project system;
 # 删除项目报表
 del form Bmbim_project;
 
+# 删除合同到项目的关系
+del relationship Bmbim_contract_to_project
+
 # 删除项目策略
 del policy Bmbim_project;
 
@@ -36,8 +39,8 @@ del type Bmbim_project;
 
 # 删除项目相关的属性
 del attribute Bmbim_project_archiveid;
-del attribute Bmbim_project_yearpecentage;
-del attribute Bmbim_project_totalpecentage;
+del attribute Bmbim_project_yearpercentage;
+del attribute Bmbim_project_totalpercentage;
 del attribute Bmbim_project_endtime;
 del attribute Bmbim_project_starttime;
 del attribute Bmbim_project_phase;

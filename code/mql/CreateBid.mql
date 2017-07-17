@@ -10,35 +10,35 @@ add attribute Bmbim_bid_name
 	type string;
 
 add attribute Bmbim_bid_clientname 
-    description 当年投标项目签订总额（万元）
-    type string;
+	description 当年投标项目签订总额（万元）
+	type string;
 
 add attribute Bmbim_bid_opentime
-    description 开标时间
-    type date;
+	description 开标时间
+	type date;
 
 add attribute Bmbim_bid_iswin
-    description 是否中标
-    type string
-    range == 是
-    range == 否;
+	description 是否中标
+	type string
+	range == 是
+	range == 否;
 
 add attribute Bmbim_bid_limitprice
-    description 限价（万元）
-    type real;
+	description 限价（万元）
+	type real;
 
 add attribute Bmbim_bid_winprice
-    description 中标金额（万元）
-    type real;
+	description 中标金额（万元）
+	type real;
 
 add attribute Bmbim_bid_openperson
-    description 开标人员
-    type string;
+	description 开标人员
+	type string;
 
 add attribute Bmbim_bid_competitorprice
-    description 其他单位报价情况
-    type string
-    multiline;
+	description 其他单位报价情况
+	type string
+	multiline;
 
 # 添加投标项目类型
 add type Bmbim_bid 
@@ -59,127 +59,127 @@ add policy Bmbim_bid
 add form Bmbim_bid web
 	description 投标项目
 	type Bmbim_bid
-    field name Bmbim_bid_id
-        label emxFramework.Attribute.Bmbim_bid_id
-        businessobject attribute[Bmbim_bid_id]
-        setting "Registered Suite" "Framework"
-        setting "Field Type" "attribute"
-        setting "Editable" "true"
-    field name Bmbim_bid_name
-        label emxFramework.Attribute.Bmbim_bid_name
-        businessobject attribute[Bmbim_bid_name]
-        setting "Registered Suite" "Framework"
-        setting "Field Type" "attribute"
-        setting "Editable" "true"
-    field name Bmbim_bid_clientname
-        label emxFramework.Attribute.Bmbim_bid_clientname
-        businessobject attribute[Bmbim_bid_clientname]
-        setting "Registered Suite" "Framework"
-        setting "Field Type" "attribute"
-        setting "Editable" "true"
-    field name Bmbim_bid_opentime
-        label emxFramework.Attribute.Bmbim_bid_opentime
-        businessobject attribute[Bmbim_bid_opentime]
-        setting "Registered Suite" "Framework"
-        setting "Field Type" "attribute"
-        setting "Editable" "true"
-        setting "format" "date"
-    field name Bmbim_bid_iswin
-        label emxFramework.Attribute.Bmbim_bid_iswin
-        businessobject attribute[Bmbim_bid_iswin]
-        setting "Registered Suite" "Framework"
-        setting "Field Type" "attribute"
-        setting "Editable" "true"
-        setting "Input Type" "combobox"
-    field name Bmbim_bid_limitprice
-        label emxFramework.Attribute.Bmbim_bid_limitprice
-        businessobject attribute[Bmbim_bid_limitprice]
-        setting "Registered Suite" "Framework"
-        setting "Field Type" "attribute"
-        setting "Editable" "true"
-        setting "format" "numeric"
-    field name Bmbim_bid_winprice
-        label emxFramework.Attribute.Bmbim_bid_winprice
-        businessobject attribute[Bmbim_bid_winprice]
-        setting "Registered Suite" "Framework"
-        setting "Field Type" "attribute"
-        setting "Editable" "true"
-        setting "format" "numeric"
-    field name Bmbim_bid_openperson
-        label emxFramework.Attribute.Bmbim_bid_openperson
-        businessobject attribute[Bmbim_bid_openperson]
-        setting "Registered Suite" "Framework"
-        setting "Field Type" "attribute"
-        setting "Editable" "true"
-    field name Bmbim_bid_competitorprice
-        label emxFramework.Attribute.Bmbim_bid_competitorprice
-        businessobject attribute[Bmbim_bid_competitorprice]
-        setting "Registered Suite" "Framework"
-        setting "Field Type" "attribute"
-        setting "Editable" "true"
-        setting "Input Type" "textarea";
+	field name Bmbim_bid_id
+		label emxFramework.Attribute.Bmbim_bid_id
+		businessobject attribute[Bmbim_bid_id]
+		setting "Registered Suite" "Framework"
+		setting "Field Type" "attribute"
+		setting "Editable" "true"
+	field name Bmbim_bid_name
+		label emxFramework.Attribute.Bmbim_bid_name
+		businessobject attribute[Bmbim_bid_name]
+		setting "Registered Suite" "Framework"
+		setting "Field Type" "attribute"
+		setting "Editable" "true"
+	field name Bmbim_bid_clientname
+		label emxFramework.Attribute.Bmbim_bid_clientname
+		businessobject attribute[Bmbim_bid_clientname]
+		setting "Registered Suite" "Framework"
+		setting "Field Type" "attribute"
+		setting "Editable" "true"
+	field name Bmbim_bid_opentime
+		label emxFramework.Attribute.Bmbim_bid_opentime
+		businessobject attribute[Bmbim_bid_opentime]
+		setting "Registered Suite" "Framework"
+		setting "Field Type" "attribute"
+		setting "Editable" "true"
+		setting "format" "date"
+	field name Bmbim_bid_iswin
+		label emxFramework.Attribute.Bmbim_bid_iswin
+		businessobject attribute[Bmbim_bid_iswin]
+		setting "Registered Suite" "Framework"
+		setting "Field Type" "attribute"
+		setting "Editable" "true"
+		setting "Input Type" "combobox"
+	field name Bmbim_bid_limitprice
+		label emxFramework.Attribute.Bmbim_bid_limitprice
+		businessobject attribute[Bmbim_bid_limitprice]
+		setting "Registered Suite" "Framework"
+		setting "Field Type" "attribute"
+		setting "Editable" "true"
+		setting "format" "numeric"
+	field name Bmbim_bid_winprice
+		label emxFramework.Attribute.Bmbim_bid_winprice
+		businessobject attribute[Bmbim_bid_winprice]
+		setting "Registered Suite" "Framework"
+		setting "Field Type" "attribute"
+		setting "Editable" "true"
+		setting "format" "numeric"
+	field name Bmbim_bid_openperson
+		label emxFramework.Attribute.Bmbim_bid_openperson
+		businessobject attribute[Bmbim_bid_openperson]
+		setting "Registered Suite" "Framework"
+		setting "Field Type" "attribute"
+		setting "Editable" "true"
+	field name Bmbim_bid_competitorprice
+		label emxFramework.Attribute.Bmbim_bid_competitorprice
+		businessobject attribute[Bmbim_bid_competitorprice]
+		setting "Registered Suite" "Framework"
+		setting "Field Type" "attribute"
+		setting "Editable" "true"
+		setting "Input Type" "textarea";
 
 # 添加投标项目表格
 add table Bmbim_bid system 
-    column name Bmbim_bid_id
-        label emxFramework.Attribute.Bmbim_bid_id
-        businessobject attribute[Bmbim_bid_id]
-        setting "Registered Suite" "Framework"
-        setting "Field Type" "attribute"
-        setting "Editable" "true"
-    column name Bmbim_bid_name
-        label emxFramework.Attribute.Bmbim_bid_name
-        businessobject attribute[Bmbim_bid_name]
-        setting "Registered Suite" "Framework"
-        setting "Field Type" "attribute"
-        setting "Editable" "true"
-    column name Bmbim_bid_clientname
-        label emxFramework.Attribute.Bmbim_bid_clientname
-        businessobject attribute[Bmbim_bid_clientname]
-        setting "Registered Suite" "Framework"
-        setting "Field Type" "attribute"
-        setting "Editable" "true"
-    column name Bmbim_bid_opentime
-        label emxFramework.Attribute.Bmbim_bid_opentime
-        businessobject attribute[Bmbim_bid_opentime]
-        setting "Registered Suite" "Framework"
-        setting "Field Type" "attribute"
-        setting "Editable" "true"
-        setting "format" "date"
-    column name Bmbim_bid_iswin
-        label emxFramework.Attribute.Bmbim_bid_iswin
-        businessobject attribute[Bmbim_bid_iswin]
-        setting "Registered Suite" "Framework"
-        setting "Field Type" "attribute"
-        setting "Editable" "true"
-        setting "Input Type" "combobox"
-    column name Bmbim_bid_limitprice
-        label emxFramework.Attribute.Bmbim_bid_limitprice
-        businessobject attribute[Bmbim_bid_limitprice]
-        setting "Registered Suite" "Framework"
-        setting "Field Type" "attribute"
-        setting "Editable" "true"
-        setting "format" "numeric"
-    column name Bmbim_bid_winprice
-        label emxFramework.Attribute.Bmbim_bid_winprice
-        businessobject attribute[Bmbim_bid_winprice]
-        setting "Registered Suite" "Framework"
-        setting "Field Type" "attribute"
-        setting "Editable" "true"
-        setting "format" "numeric"
-    column name Bmbim_bid_openperson
-        label emxFramework.Attribute.Bmbim_bid_openperson
-        businessobject attribute[Bmbim_bid_openperson]
-        setting "Registered Suite" "Framework"
-        setting "Field Type" "attribute"
-        setting "Editable" "true"
-    column name Bmbim_bid_competitorprice
-        label emxFramework.Attribute.Bmbim_bid_competitorprice
-        businessobject attribute[Bmbim_bid_competitorprice]
-        setting "Registered Suite" "Framework"
-        setting "Field Type" "attribute"
-        setting "Editable" "true"
-        setting "Input Type" "textarea";
+	column name Bmbim_bid_id
+		label emxFramework.Attribute.Bmbim_bid_id
+		businessobject attribute[Bmbim_bid_id]
+		setting "Registered Suite" "Framework"
+		setting "Field Type" "attribute"
+		setting "Editable" "true"
+	column name Bmbim_bid_name
+		label emxFramework.Attribute.Bmbim_bid_name
+		businessobject attribute[Bmbim_bid_name]
+		setting "Registered Suite" "Framework"
+		setting "Field Type" "attribute"
+		setting "Editable" "true"
+	column name Bmbim_bid_clientname
+		label emxFramework.Attribute.Bmbim_bid_clientname
+		businessobject attribute[Bmbim_bid_clientname]
+		setting "Registered Suite" "Framework"
+		setting "Field Type" "attribute"
+		setting "Editable" "true"
+	column name Bmbim_bid_opentime
+		label emxFramework.Attribute.Bmbim_bid_opentime
+		businessobject attribute[Bmbim_bid_opentime]
+		setting "Registered Suite" "Framework"
+		setting "Field Type" "attribute"
+		setting "Editable" "true"
+		setting "format" "date"
+	column name Bmbim_bid_iswin
+		label emxFramework.Attribute.Bmbim_bid_iswin
+		businessobject attribute[Bmbim_bid_iswin]
+		setting "Registered Suite" "Framework"
+		setting "Field Type" "attribute"
+		setting "Editable" "true"
+		setting "Input Type" "combobox"
+	column name Bmbim_bid_limitprice
+		label emxFramework.Attribute.Bmbim_bid_limitprice
+		businessobject attribute[Bmbim_bid_limitprice]
+		setting "Registered Suite" "Framework"
+		setting "Field Type" "attribute"
+		setting "Editable" "true"
+		setting "format" "numeric"
+	column name Bmbim_bid_winprice
+		label emxFramework.Attribute.Bmbim_bid_winprice
+		businessobject attribute[Bmbim_bid_winprice]
+		setting "Registered Suite" "Framework"
+		setting "Field Type" "attribute"
+		setting "Editable" "true"
+		setting "format" "numeric"
+	column name Bmbim_bid_openperson
+		label emxFramework.Attribute.Bmbim_bid_openperson
+		businessobject attribute[Bmbim_bid_openperson]
+		setting "Registered Suite" "Framework"
+		setting "Field Type" "attribute"
+		setting "Editable" "true"
+	column name Bmbim_bid_competitorprice
+		label emxFramework.Attribute.Bmbim_bid_competitorprice
+		businessobject attribute[Bmbim_bid_competitorprice]
+		setting "Registered Suite" "Framework"
+		setting "Field Type" "attribute"
+		setting "Editable" "true"
+		setting "Input Type" "textarea";
 
 # 添加投标项目查询
 add inquiry Bmbim_bid
@@ -224,7 +224,7 @@ add command Bmbim_bid
 # 将投标项目按钮添加到My Enovia中
 modify menu "My Enovia"
 	add command Bmbim_bid
-	order command Bmbim_bid 5;
+	order command Bmbim_bid 3;
 
 # 增加投标项目Name自动生成器（投标项目Name不等同于投标项目名称，前者是投标项目BO对象Type,Name,Revision的一部分，后者是投标项目BO对象的属性）
 add businessobject "eService Object Generator" type_Bmbim_bid 1 

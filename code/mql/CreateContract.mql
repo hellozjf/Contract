@@ -14,10 +14,6 @@ add attribute Bmbim_contract_name
 	type string 
 	description 合同名称;
 
-add attribute Bmbim_contract_state 
-	type string 
-	description 合同状态;
-
 add attribute Bmbim_contract_signdate 
 	type date 
 	description 我院签定时间;
@@ -57,7 +53,7 @@ add attribute Bmbim_contract_totalamount
 # 添加合同类型
 add type Bmbim_contract 
 	description 合同 
-	attribute Bmbim_contract_id, Bmbim_contract_name, Bmbim_contract_state, Bmbim_contract_signdate, Bmbim_contract_clientsign, Bmbim_contract_projectscale, Bmbim_contract_type, Bmbim_contract_clientname, Bmbim_contract_meetingcharge, Bmbim_contract_totalamount;
+	attribute Bmbim_contract_id, Bmbim_contract_name, Bmbim_contract_signdate, Bmbim_contract_clientsign, Bmbim_contract_projectscale, Bmbim_contract_type, Bmbim_contract_clientname, Bmbim_contract_meetingcharge, Bmbim_contract_totalamount;
 
 # 添加合同策略
 add policy Bmbim_contract 
@@ -97,62 +93,62 @@ add form Bmbim_contract web
 	field name Bmbim_contract_id
 		label emxFramework.Attribute.Bmbim_contract_id
 		businessobject attribute[Bmbim_contract_id]
-		setting "Field Type" "attribute"
-		setting "Editable" "true"
 		setting "Registered Suite" "Framework"
+		setting "Editable" "true"
+		setting "Field Type" "attribute"
 	field name Bmbim_contract_name
 		label emxFramework.Attribute.Bmbim_contract_name
 		businessobject attribute[Bmbim_contract_name]
-		setting "Field Type" "attribute"
-		setting "Editable" "true"
 		setting "Registered Suite" "Framework"
+		setting "Editable" "true"
+		setting "Field Type" "attribute"
 	field name Bmbim_contract_signdate
 		label emxFramework.Attribute.Bmbim_contract_signdate
 		businessobject attribute[Bmbim_contract_signdate]
-		setting "Field Type" "attribute"
-		setting "Editable" "true"
 		setting "Registered Suite" "Framework"
+		setting "Editable" "true"
+		setting "Field Type" "attribute"
 		setting "format" "date"
 	field name Bmbim_contract_clientsign
 		label emxFramework.Attribute.Bmbim_contract_clientsign
 		businessobject attribute[Bmbim_contract_clientsign]
-		setting "Field Type" "attribute"
-		setting "Editable" "true"
 		setting "Registered Suite" "Framework"
+		setting "Editable" "true"
+		setting "Field Type" "attribute"
 		setting "format" "date"
 	field name Bmbim_contract_projectscale
 		label emxFramework.Attribute.Bmbim_contract_projectscale
 		businessobject attribute[Bmbim_contract_projectscale]
-		setting "Field Type" "attribute"
-		setting "Editable" "true"
 		setting "Registered Suite" "Framework"
+		setting "Editable" "true"
+		setting "Field Type" "attribute"
 		setting "Input Type" "combobox"
 	field name Bmbim_contract_type
 		label emxFramework.Attribute.Bmbim_contract_type
 		businessobject attribute[Bmbim_contract_type]
-		setting "Field Type" "attribute"
-		setting "Editable" "true"
 		setting "Registered Suite" "Framework"
+		setting "Editable" "true"
+		setting "Field Type" "attribute"
 		setting "Input Type" "combobox"
 	field name Bmbim_contract_clientname
 		label emxFramework.Attribute.Bmbim_contract_clientname
 		businessobject attribute[Bmbim_contract_clientname]
-		setting "Field Type" "attribute"
-		setting "Editable" "true"
 		setting "Registered Suite" "Framework"
+		setting "Editable" "true"
+		setting "Field Type" "attribute"
 	field name Bmbim_contract_meetingcharge
 		label emxFramework.Attribute.Bmbim_contract_meetingcharge
 		businessobject attribute[Bmbim_contract_meetingcharge]
-		setting "Field Type" "attribute"
-		setting "Editable" "true"
 		setting "Registered Suite" "Framework"
+		setting "Editable" "true"
+		setting "Field Type" "attribute"
 		setting "format" "numeric"
 	field name Bmbim_contract_totalamount 
 		label emxFramework.Attribute.Bmbim_contract_totalamount 
 		businessobject attribute[Bmbim_contract_totalamount]
-		setting "Field Type" "attribute"
-		setting "Editable" "true"
 		setting "Registered Suite" "Framework"
+		setting "Editable" "true"
+		setting "Field Type" "attribute"
 		setting "format" "numeric";
 
 # 添加合同表格
@@ -160,90 +156,99 @@ add table Bmbim_contract system
 	column name Bmbim_contract_id
 		label emxFramework.Attribute.Bmbim_contract_id
 		businessobject attribute[Bmbim_contract_id]
-		setting "Field Type" "attribute"
-		setting "Editable" "false"
 		setting "Registered Suite" "Framework"
+		setting "Editable" "false"
+		setting "Field Type" "attribute"
 	column name Bmbim_contract_name
 		label emxFramework.Attribute.Bmbim_contract_name
 		businessobject attribute[Bmbim_contract_name]
-		setting "Field Type" "attribute"
-		setting "Editable" "false"
 		setting "Registered Suite" "Framework"
+		setting "Editable" "false"
+		setting "Field Type" "attribute"
 	column name Bmbim_contract_state
 		label emxFramework.Attribute.Bmbim_contract_state
 		businessobject current
-		setting "Field Type" "basic"
-		setting "Editable" "false"
 		setting "Registered Suite" "Framework"
+		setting "Editable" "false"
+		setting "Field Type" "basic"
 	column name Bmbim_contract_received
 		label emxFramework.Attribute.Bmbim_contract_received
-		setting "Editable" "false"
 		setting "Registered Suite" "Framework"
+		setting "Editable" "false"
 		setting "Column Type" "program"
 		setting "program" "Bmbim_contract"
 		setting "function" "getReceived"
 	column name Bmbim_contract_totalamount
 		label emxFramework.Attribute.Bmbim_contract_totalamount
 		businessobject attribute[Bmbim_contract_totalamount]
-		setting "Field Type" "attribute"
-		setting "Editable" "false"
 		setting "Registered Suite" "Framework"
+		setting "Editable" "false"
+		setting "Field Type" "attribute"
 		setting "format" "numeric"
 	column name Bmbim_contract_signdate
 		label emxFramework.Attribute.Bmbim_contract_signdate
 		businessobject attribute[Bmbim_contract_signdate]
-		setting "Field Type" "attribute"
-		setting "Editable" "false"
 		setting "Registered Suite" "Framework"
+		setting "Editable" "false"
+		setting "Field Type" "attribute"
 		setting "format" "date"
 	column name Bmbim_contract_clientsign
 		label emxFramework.Attribute.Bmbim_contract_clientsign
 		businessobject attribute[Bmbim_contract_clientsign]
-		setting "Field Type" "attribute"
-		setting "Editable" "false"
 		setting "Registered Suite" "Framework"
+		setting "Editable" "false"
+		setting "Field Type" "attribute"
 		setting "format" "date"
 	column name Bmbim_contract_projectscale
 		label emxFramework.Attribute.Bmbim_contract_projectscale
 		businessobject attribute[Bmbim_contract_projectscale]
-		setting "Field Type" "attribute"
-		setting "Editable" "true"
 		setting "Registered Suite" "Framework"
+		setting "Editable" "false"
+		setting "Field Type" "attribute"
 		setting "Input Type" "combobox"
 	column name Bmbim_contract_type
 		label emxFramework.Attribute.Bmbim_contract_type
 		businessobject attribute[Bmbim_contract_type]
-		setting "Field Type" "attribute"
-		setting "Editable" "true"
 		setting "Registered Suite" "Framework"
+		setting "Editable" "false"
+		setting "Field Type" "attribute"
 		setting "Input Type" "combobox"
 	column name Bmbim_contract_clientname
 		label emxFramework.Attribute.Bmbim_contract_clientname
 		businessobject attribute[Bmbim_contract_clientname]
-		setting "Field Type" "attribute"
-		setting "Editable" "false"
 		setting "Registered Suite" "Framework"
+		setting "Editable" "false"
+		setting "Field Type" "attribute"
 	column name Bmbim_contract_meetingcharge
 		label emxFramework.Attribute.Bmbim_contract_meetingcharge
 		businessobject attribute[Bmbim_contract_meetingcharge]
-		setting "Field Type" "attribute"
-		setting "Editable" "false"
 		setting "Registered Suite" "Framework"
+		setting "Editable" "false"
+		setting "Field Type" "attribute"
+		setting "format" "numeric"
 	column name Bmbim_contract_receipts
 		label emxFramework.Attribute.Bmbim_contract_receipts
+		href "${COMMON_DIR}/emxIndentedTable.jsp?program=Bmbim_contract:getAllRelatedReceipts&table=Bmbim_receipt&editLink=true&selection=multiple&toolbar=Bmbim_receipt_toolbar&freezePane=Bmbim_receipt_id&header=emxFramework.String.Bmbim_receipt_header"
 		setting "Registered Suite" "Framework"
-		setting "Column Type" "icon"
-		setting "Column Icon" "images/iconNewWindow.gif"
+		setting "Editable" "false"
+		setting "Column Type" "program"
+		setting "program" "Bmbim_contract"
+		setting "function" "getReceipts"
 	column name Bmbim_contract_projects
 		label emxFramework.Attribute.Bmbim_contract_projects
+		href "${COMMON_DIR}/emxIndentedTable.jsp?program=Bmbim_contract:getAllRelatedProjects&table=Bmbim_project&editLink=true&selection=multiple&toolbar=Bmbim_project_toolbar&freezePane=Bmbim_project_id&header=emxFramework.String.Bmbim_project_header"
 		setting "Registered Suite" "Framework"
-		setting "Column Type" "icon"
-		setting "Column Icon" "images/iconNewWindow.gif"
+		setting "Editable" "false"
+		setting "Column Type" "program"
+		setting "program" "Bmbim_contract"
+		setting "function" "getProjects"
 	column name Bmbim_contract_states
 		label emxFramework.Attribute.Bmbim_contract_states
 		setting "Registered Suite" "Framework"
-		setting "Column Type" "icon"
-		setting "Column Icon" "images/iconNewWindow.gif";
+		setting "Editable" "false"
+		setting "Column Type" "program"
+		setting "program" "Bmbim_contract"
+		setting "function" "getStates"
 
 # 添加合同查询
 add inquiry Bmbim_contract

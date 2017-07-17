@@ -10,25 +10,25 @@ add attribute Bmbim_project_name
 	type string;
 
 add attribute Bmbim_project_type 
-    description 项目类型
-    type string 
-    range == 规划 
-    range == 测量 
-    range == 港口
-    range == 航道
-    range == 枢纽;
+	description 项目类型
+	type string 
+	range == 规划 
+	range == 测量 
+	range == 港口
+	range == 航道
+	range == 枢纽;
 
 add attribute Bmbim_project_manager 
-    description 主管领导
-    type string;
+	description 主管领导
+	type string;
 
 add attribute Bmbim_project_leader 
-    description 项目负责人
-    type string;
+	description 项目负责人
+	type string;
 
 add attribute Bmbim_project_phase
-    description 项目阶段
-    type string;
+	description 项目阶段
+	type string;
 
 add attribute Bmbim_project_starttime 
 	description 开始时间
@@ -38,11 +38,11 @@ add attribute Bmbim_project_endtime
 	description 结束时间
 	type date;
 
-add attribute Bmbim_project_totalpecentage
+add attribute Bmbim_project_totalpercentage
 	description 总完成率
 	type string;
 
-add attribute Bmbim_project_yearpecentage 
+add attribute Bmbim_project_yearpercentage 
 	description 今年完成率
 	type string;
 
@@ -53,7 +53,7 @@ add attribute Bmbim_project_archiveid
 # 添加项目类型
 add type Bmbim_project 
 	description 项目 
-	attribute Bmbim_project_id, Bmbim_project_name, Bmbim_project_type, Bmbim_project_manager, Bmbim_project_leader, Bmbim_project_phase, Bmbim_project_starttime, Bmbim_project_endtime, Bmbim_project_totalpecentage, Bmbim_project_yearpecentage, Bmbim_project_archiveid;
+	attribute Bmbim_project_id, Bmbim_project_name, Bmbim_project_type, Bmbim_project_manager, Bmbim_project_leader, Bmbim_project_phase, Bmbim_project_starttime, Bmbim_project_endtime, Bmbim_project_totalpercentage, Bmbim_project_yearpercentage, Bmbim_project_archiveid;
 	
 # 添加项目策略
 add policy Bmbim_project 
@@ -65,151 +65,161 @@ add policy Bmbim_project
 		owner all 
 		public read,show;
 
+# 添加收款项和合同的关联关系
+add relationship Bmbim_contract_to_project
+	description 合同关联项目
+	from 
+		type Bmbim_contract
+		cardinality n
+	to
+		type Bmbim_project
+		cardinality n;
+
 # 添加项目报表
 add form Bmbim_project web
 	description 项目
 	type Bmbim_project
-    field name Bmbim_project_id
-        label emxFramework.Attribute.Bmbim_project_id
-        businessobject attribute[Bmbim_project_id]
-        setting "Registered Suite" "Framework"
-        setting "Field Type" "attribute"
-        setting "Editable" "true"
-    field name Bmbim_project_name
-        label emxFramework.Attribute.Bmbim_project_name
-        businessobject attribute[Bmbim_project_name]
-        setting "Registered Suite" "Framework"
-        setting "Field Type" "attribute"
-        setting "Editable" "true"
-    field name Bmbim_project_type
-        label emxFramework.Attribute.Bmbim_project_type
-        businessobject attribute[Bmbim_project_type]
-        setting "Registered Suite" "Framework"
-        setting "Field Type" "attribute"
-        setting "Editable" "true"
-        setting "Input Type" "combobox"
-    field name Bmbim_project_manager
-        label emxFramework.Attribute.Bmbim_project_manager
-        businessobject attribute[Bmbim_project_manager]
-        setting "Registered Suite" "Framework"
-        setting "Field Type" "attribute"
-        setting "Editable" "true"
-    field name Bmbim_project_leader
-        label emxFramework.Attribute.Bmbim_project_leader
-        businessobject attribute[Bmbim_project_leader]
-        setting "Registered Suite" "Framework"
-        setting "Field Type" "attribute"
-        setting "Editable" "true"
-    field name Bmbim_project_phase
-        label emxFramework.Attribute.Bmbim_project_phase
-        businessobject attribute[Bmbim_project_phase]
-        setting "Registered Suite" "Framework"
-        setting "Field Type" "attribute"
-        setting "Editable" "true"
-    field name Bmbim_project_starttime
-        label emxFramework.Attribute.Bmbim_project_starttime
-        businessobject attribute[Bmbim_project_starttime]
-        setting "Registered Suite" "Framework"
-        setting "Field Type" "attribute"
-        setting "Editable" "true"
-        setting "format" "date"
-    field name Bmbim_project_endtime
-        label emxFramework.Attribute.Bmbim_project_endtime
-        businessobject attribute[Bmbim_project_endtime]
-        setting "Registered Suite" "Framework"
-        setting "Field Type" "attribute"
-        setting "Editable" "true"
-        setting "format" "date"
-    field name Bmbim_project_totalpecentage
-        label emxFramework.Attribute.Bmbim_project_totalpecentage
-        businessobject attribute[Bmbim_project_totalpecentage]
-        setting "Registered Suite" "Framework"
-        setting "Field Type" "attribute"
-        setting "Editable" "true"
-    field name Bmbim_project_yearpecentage
-        label emxFramework.Attribute.Bmbim_project_yearpecentage
-        businessobject attribute[Bmbim_project_yearpecentage]
-        setting "Registered Suite" "Framework"
-        setting "Field Type" "attribute"
-        setting "Editable" "true"
-    field name Bmbim_project_archiveid
-        label emxFramework.Attribute.Bmbim_project_archiveid
-        businessobject attribute[Bmbim_project_archiveid]
-        setting "Registered Suite" "Framework"
-        setting "Field Type" "attribute"
-        setting "Editable" "true";
+	field name Bmbim_project_id
+		label emxFramework.Attribute.Bmbim_project_id
+		businessobject attribute[Bmbim_project_id]
+		setting "Registered Suite" "Framework"
+		setting "Field Type" "attribute"
+		setting "Editable" "true"
+	field name Bmbim_project_name
+		label emxFramework.Attribute.Bmbim_project_name
+		businessobject attribute[Bmbim_project_name]
+		setting "Registered Suite" "Framework"
+		setting "Field Type" "attribute"
+		setting "Editable" "true"
+	field name Bmbim_project_type
+		label emxFramework.Attribute.Bmbim_project_type
+		businessobject attribute[Bmbim_project_type]
+		setting "Registered Suite" "Framework"
+		setting "Field Type" "attribute"
+		setting "Editable" "true"
+		setting "Input Type" "combobox"
+	field name Bmbim_project_manager
+		label emxFramework.Attribute.Bmbim_project_manager
+		businessobject attribute[Bmbim_project_manager]
+		setting "Registered Suite" "Framework"
+		setting "Field Type" "attribute"
+		setting "Editable" "true"
+	field name Bmbim_project_leader
+		label emxFramework.Attribute.Bmbim_project_leader
+		businessobject attribute[Bmbim_project_leader]
+		setting "Registered Suite" "Framework"
+		setting "Field Type" "attribute"
+		setting "Editable" "true"
+	field name Bmbim_project_phase
+		label emxFramework.Attribute.Bmbim_project_phase
+		businessobject attribute[Bmbim_project_phase]
+		setting "Registered Suite" "Framework"
+		setting "Field Type" "attribute"
+		setting "Editable" "true"
+	field name Bmbim_project_starttime
+		label emxFramework.Attribute.Bmbim_project_starttime
+		businessobject attribute[Bmbim_project_starttime]
+		setting "Registered Suite" "Framework"
+		setting "Field Type" "attribute"
+		setting "Editable" "true"
+		setting "format" "date"
+	field name Bmbim_project_endtime
+		label emxFramework.Attribute.Bmbim_project_endtime
+		businessobject attribute[Bmbim_project_endtime]
+		setting "Registered Suite" "Framework"
+		setting "Field Type" "attribute"
+		setting "Editable" "true"
+		setting "format" "date"
+	field name Bmbim_project_totalpercentage
+		label emxFramework.Attribute.Bmbim_project_totalpercentage
+		businessobject attribute[Bmbim_project_totalpercentage]
+		setting "Registered Suite" "Framework"
+		setting "Field Type" "attribute"
+		setting "Editable" "true"
+	field name Bmbim_project_yearpercentage
+		label emxFramework.Attribute.Bmbim_project_yearpercentage
+		businessobject attribute[Bmbim_project_yearpercentage]
+		setting "Registered Suite" "Framework"
+		setting "Field Type" "attribute"
+		setting "Editable" "true"
+	field name Bmbim_project_archiveid
+		label emxFramework.Attribute.Bmbim_project_archiveid
+		businessobject attribute[Bmbim_project_archiveid]
+		setting "Registered Suite" "Framework"
+		setting "Field Type" "attribute"
+		setting "Editable" "true";
 
 # 添加项目表格
 add table Bmbim_project system 
-    column name Bmbim_project_id
-        label emxFramework.Attribute.Bmbim_project_id
-        businessobject attribute[Bmbim_project_id]
-        setting "Registered Suite" "Framework"
-        setting "Field Type" "attribute"
-        setting "Editable" "true"
-    column name Bmbim_project_name
-        label emxFramework.Attribute.Bmbim_project_name
-        businessobject attribute[Bmbim_project_name]
-        setting "Registered Suite" "Framework"
-        setting "Field Type" "attribute"
-        setting "Editable" "true"
-    column name Bmbim_project_type
-        label emxFramework.Attribute.Bmbim_project_type
-        businessobject attribute[Bmbim_project_type]
-        setting "Registered Suite" "Framework"
-        setting "Field Type" "attribute"
-        setting "Editable" "true"
-        setting "Input Type" "combobox"
-    column name Bmbim_project_manager
-        label emxFramework.Attribute.Bmbim_project_manager
-        businessobject attribute[Bmbim_project_manager]
-        setting "Registered Suite" "Framework"
-        setting "Field Type" "attribute"
-        setting "Editable" "true"
-    column name Bmbim_project_leader
-        label emxFramework.Attribute.Bmbim_project_leader
-        businessobject attribute[Bmbim_project_leader]
-        setting "Registered Suite" "Framework"
-        setting "Field Type" "attribute"
-        setting "Editable" "true"
-    column name Bmbim_project_phase
-        label emxFramework.Attribute.Bmbim_project_phase
-        businessobject attribute[Bmbim_project_phase]
-        setting "Registered Suite" "Framework"
-        setting "Field Type" "attribute"
-        setting "Editable" "true"
-    column name Bmbim_project_starttime
-        label emxFramework.Attribute.Bmbim_project_starttime
-        businessobject attribute[Bmbim_project_starttime]
-        setting "Registered Suite" "Framework"
-        setting "Field Type" "attribute"
-        setting "Editable" "true"
-        setting "format" "date"
-    column name Bmbim_project_endtime
-        label emxFramework.Attribute.Bmbim_project_endtime
-        businessobject attribute[Bmbim_project_endtime]
-        setting "Registered Suite" "Framework"
-        setting "Field Type" "attribute"
-        setting "Editable" "true"
-        setting "format" "date"
-    column name Bmbim_project_totalpecentage
-        label emxFramework.Attribute.Bmbim_project_totalpecentage
-        businessobject attribute[Bmbim_project_totalpecentage]
-        setting "Registered Suite" "Framework"
-        setting "Field Type" "attribute"
-        setting "Editable" "true"
-    column name Bmbim_project_yearpecentage
-        label emxFramework.Attribute.Bmbim_project_yearpecentage
-        businessobject attribute[Bmbim_project_yearpecentage]
-        setting "Registered Suite" "Framework"
-        setting "Field Type" "attribute"
-        setting "Editable" "true"
-    column name Bmbim_project_archiveid
-        label emxFramework.Attribute.Bmbim_project_archiveid
-        businessobject attribute[Bmbim_project_archiveid]
-        setting "Registered Suite" "Framework"
-        setting "Field Type" "attribute"
-        setting "Editable" "true";
+	column name Bmbim_project_id
+		label emxFramework.Attribute.Bmbim_project_id
+		businessobject attribute[Bmbim_project_id]
+		setting "Registered Suite" "Framework"
+		setting "Field Type" "attribute"
+		setting "Editable" "true"
+	column name Bmbim_project_name
+		label emxFramework.Attribute.Bmbim_project_name
+		businessobject attribute[Bmbim_project_name]
+		setting "Registered Suite" "Framework"
+		setting "Field Type" "attribute"
+		setting "Editable" "true"
+	column name Bmbim_project_type
+		label emxFramework.Attribute.Bmbim_project_type
+		businessobject attribute[Bmbim_project_type]
+		setting "Registered Suite" "Framework"
+		setting "Field Type" "attribute"
+		setting "Editable" "true"
+		setting "Input Type" "combobox"
+	column name Bmbim_project_manager
+		label emxFramework.Attribute.Bmbim_project_manager
+		businessobject attribute[Bmbim_project_manager]
+		setting "Registered Suite" "Framework"
+		setting "Field Type" "attribute"
+		setting "Editable" "true"
+	column name Bmbim_project_leader
+		label emxFramework.Attribute.Bmbim_project_leader
+		businessobject attribute[Bmbim_project_leader]
+		setting "Registered Suite" "Framework"
+		setting "Field Type" "attribute"
+		setting "Editable" "true"
+	column name Bmbim_project_phase
+		label emxFramework.Attribute.Bmbim_project_phase
+		businessobject attribute[Bmbim_project_phase]
+		setting "Registered Suite" "Framework"
+		setting "Field Type" "attribute"
+		setting "Editable" "true"
+	column name Bmbim_project_starttime
+		label emxFramework.Attribute.Bmbim_project_starttime
+		businessobject attribute[Bmbim_project_starttime]
+		setting "Registered Suite" "Framework"
+		setting "Field Type" "attribute"
+		setting "Editable" "true"
+		setting "format" "date"
+	column name Bmbim_project_endtime
+		label emxFramework.Attribute.Bmbim_project_endtime
+		businessobject attribute[Bmbim_project_endtime]
+		setting "Registered Suite" "Framework"
+		setting "Field Type" "attribute"
+		setting "Editable" "true"
+		setting "format" "date"
+	column name Bmbim_project_totalpercentage
+		label emxFramework.Attribute.Bmbim_project_totalpercentage
+		businessobject attribute[Bmbim_project_totalpercentage]
+		setting "Registered Suite" "Framework"
+		setting "Field Type" "attribute"
+		setting "Editable" "true"
+	column name Bmbim_project_yearpercentage
+		label emxFramework.Attribute.Bmbim_project_yearpercentage
+		businessobject attribute[Bmbim_project_yearpercentage]
+		setting "Registered Suite" "Framework"
+		setting "Field Type" "attribute"
+		setting "Editable" "true"
+	column name Bmbim_project_archiveid
+		label emxFramework.Attribute.Bmbim_project_archiveid
+		businessobject attribute[Bmbim_project_archiveid]
+		setting "Registered Suite" "Framework"
+		setting "Field Type" "attribute"
+		setting "Editable" "true";
 
 # 添加项目查询
 add inquiry Bmbim_project
@@ -222,7 +232,7 @@ add inquiry Bmbim_project
 add command Bmbim_project_create
 	description 添加项目
 	label emxFramework.Command.Bmbim_project_create
-	href "${COMMON_DIR}/emxCreate.jsp?type=type_Bmbim_project&policy=policy_Bmbim_project&nameField=both&form=Bmbim_project&autoNameChecked=true&submitAction=refreshCaller"
+	href "${COMMON_DIR}/emxCreate.jsp?type=type_Bmbim_project&policy=policy_Bmbim_project&nameField=both&form=Bmbim_project&autoNameChecked=true&submitAction=refreshCaller&relationship=Bmbim_contract_to_project"
 	setting "Image" "${COMMON_DIR}/images/iconActionCreate.png"
 	setting "Submit" "true"
 	setting "Target Location" "slidein";
@@ -252,9 +262,9 @@ add command Bmbim_project
 	setting "Target Location" "content";
 
 # 将项目按钮添加到My Enovia中
-modify menu "My Enovia"
-	add command Bmbim_project
-	order command Bmbim_project 3;
+#modify menu "My Enovia"
+#	add command Bmbim_project
+#	order command Bmbim_project 3;
 
 # 增加项目Name自动生成器（项目Name不等同于项目名称，前者是项目BO对象Type,Name,Revision的一部分，后者是项目BO对象的属性）
 add businessobject "eService Object Generator" type_Bmbim_project 1 
