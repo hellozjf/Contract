@@ -36,10 +36,15 @@ add attribute Bmbim_receipt_remark
 	description 收款项备注
 	multiline;
 
+add attribute Bmbim_receipt_invoice
+	type string
+	description 发票备注
+	multiline;
+
 # 添加收款项类型
 add type Bmbim_receipt 
 	description 收款项 
-	attribute Bmbim_receipt_id, Bmbim_receipt_type, Bmbim_receipt_planmoney, Bmbim_receipt_plandate, Bmbim_receipt_actualmoney, Bmbim_receipt_actualdate, Bmbim_receipt_remark;
+	attribute Bmbim_receipt_id, Bmbim_receipt_type, Bmbim_receipt_planmoney, Bmbim_receipt_plandate, Bmbim_receipt_actualmoney, Bmbim_receipt_actualdate, Bmbim_receipt_remark, Bmbim_receipt_invoice;
 
 # 添加收款项策略
 add policy Bmbim_receipt 
@@ -112,6 +117,13 @@ add form Bmbim_receipt web
 		setting "Registered Suite" "Framework"
 		setting "Editable" "true"
 		setting "Field Type" "attribute"
+		setting "Input Type" "textarea"
+	field name Bmbim_receipt_invoice
+		label emxFramework.Attribute.Bmbim_receipt_invoice
+		businessobject attribute[Bmbim_receipt_invoice]
+		setting "Registered Suite" "Framework"
+		setting "Editable" "true"
+		setting "Field Type" "attribute"
 		setting "Input Type" "textarea";
 
 # 添加收款项表格
@@ -160,6 +172,13 @@ add table Bmbim_receipt system
 	column name Bmbim_receipt_remark
 		label emxFramework.Attribute.Bmbim_receipt_remark
 		businessobject attribute[Bmbim_receipt_remark]
+		setting "Registered Suite" "Framework"
+		setting "Editable" "true"
+		setting "Field Type" "attribute"
+		setting "Input Type" "textarea"
+	column name Bmbim_receipt_invoice
+		label emxFramework.Attribute.Bmbim_receipt_invoice
+		businessobject attribute[Bmbim_receipt_invoice]
 		setting "Registered Suite" "Framework"
 		setting "Editable" "true"
 		setting "Field Type" "attribute"

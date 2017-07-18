@@ -35,7 +35,12 @@ del policy Bmbim_plan;
 del type Bmbim_plan;
 
 # 删除项目相关的属性
+del attribute Bmbim_plan_totalpaymentpercentage;
+del attribute Bmbim_plan_actualtotalpayment;
 del attribute Bmbim_plan_totalpayment;
+del attribute Bmbim_plan_totalamountpercentage;
+del attribute Bmbim_plan_actualtotalamount;
 del attribute Bmbim_plan_totalamount;
-del attribute Bmbim_plan_year;
+del attribute Bmbim_plan_endtime;
+del attribute Bmbim_plan_starttime;
 del attribute Bmbim_plan_id;

@@ -5,22 +5,42 @@ add attribute Bmbim_plan_id
 	description 计划编号
 	type string;
 
-add attribute Bmbim_plan_year 
-	description 计划年份
-	type string;
+add attribute Bmbim_plan_starttime
+	description 计划开始时间
+	type date;
+
+add attribute Bmbim_plan_endtime
+	description 计划结束时间
+	type date;
 
 add attribute Bmbim_plan_totalamount 
-	description 当年计划签订总额（万元）
+	description 计划签订总额（万元）
+	type real;
+
+add attribute Bmbim_plan_actualtotalamount
+	description 实际签订总额（万元）
+	type real;
+
+add attribute Bmbim_plan_totalamountpercentage
+	description 签订完成率
 	type real;
 
 add attribute Bmbim_plan_totalpayment 
-	description 当年计划收款总额（万元）
+	description 计划收款总额（万元）
+	type real;
+
+add attribute Bmbim_plan_actualtotalpayment
+	description 实际收款总额（万元）
+	type real;
+
+add attribute Bmbim_plan_totalpaymentpercentage
+	description 收款完成率
 	type real;
 
 # 添加计划类型
 add type Bmbim_plan 
 	description 计划 
-	attribute Bmbim_plan_id, Bmbim_plan_year, Bmbim_plan_totalamount, Bmbim_plan_totalpayment;
+	attribute Bmbim_plan_id, Bmbim_plan_starttime, Bmbim_plan_endtime, Bmbim_plan_totalamount, Bmbim_plan_totalpayment;
 
 # 添加计划策略
 add policy Bmbim_plan 
@@ -42,12 +62,20 @@ add form Bmbim_plan web
 		setting "Registered Suite" "Framework"
 		setting "Editable" "true"
 		setting "Field Type" "attribute"
-	field name Bmbim_plan_year
-		label emxFramework.Attribute.Bmbim_plan_year
-		businessobject attribute[Bmbim_plan_year]
+	field name Bmbim_plan_starttime
+		label emxFramework.Attribute.Bmbim_plan_starttime
+		businessobject attribute[Bmbim_plan_starttime]
 		setting "Registered Suite" "Framework"
 		setting "Editable" "true"
 		setting "Field Type" "attribute"
+		setting "format" "date"
+	field name Bmbim_plan_endtime
+		label emxFramework.Attribute.Bmbim_plan_endtime
+		businessobject attribute[Bmbim_plan_endtime]
+		setting "Registered Suite" "Framework"
+		setting "Editable" "true"
+		setting "Field Type" "attribute"
+		setting "format" "date"
 	field name Bmbim_plan_totalamount
 		label emxFramework.Attribute.Bmbim_plan_totalamount
 		businessobject attribute[Bmbim_plan_totalamount]
@@ -71,12 +99,20 @@ add table Bmbim_plan system
 		setting "Registered Suite" "Framework"
 		setting "Editable" "true"
 		setting "Field Type" "attribute"
-	column name Bmbim_plan_year
-		label emxFramework.Attribute.Bmbim_plan_year
-		businessobject attribute[Bmbim_plan_year]
+	column name Bmbim_plan_starttime
+		label emxFramework.Attribute.Bmbim_plan_starttime
+		businessobject attribute[Bmbim_plan_starttime]
 		setting "Registered Suite" "Framework"
 		setting "Editable" "true"
-	        setting "Field Type" "attribute"
+		setting "Field Type" "attribute"
+		setting "format" "date"
+	column name Bmbim_plan_endtime
+		label emxFramework.Attribute.Bmbim_plan_endtime
+		businessobject attribute[Bmbim_plan_endtime]
+		setting "Registered Suite" "Framework"
+		setting "Editable" "true"
+		setting "Field Type" "attribute"
+		setting "format" "date"
 	column name Bmbim_plan_totalamount
 		label emxFramework.Attribute.Bmbim_plan_totalamount
 		businessobject attribute[Bmbim_plan_totalamount]

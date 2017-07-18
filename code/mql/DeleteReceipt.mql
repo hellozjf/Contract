@@ -38,6 +38,7 @@ del policy Bmbim_receipt;
 del type Bmbim_receipt;
 
 # 删除收据相关的属性
+del attribute Bmbim_receipt_invoice;
 del attribute Bmbim_receipt_remark;
 del attribute Bmbim_receipt_actualdate;
 del attribute Bmbim_receipt_actualmoney;

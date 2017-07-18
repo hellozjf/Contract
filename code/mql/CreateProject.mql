@@ -16,7 +16,8 @@ add attribute Bmbim_project_type
 	range == 测量 
 	range == 港口
 	range == 航道
-	range == 枢纽;
+	range == 枢纽
+	range == 其它;
 
 add attribute Bmbim_project_manager 
 	description 主管领导
@@ -46,14 +47,14 @@ add attribute Bmbim_project_yearpercentage
 	description 今年完成率
 	type string;
 
-add attribute Bmbim_project_archiveid
+add attribute Bmbim_project_remark
 	description 交付文件序号
 	type string;
 
 # 添加项目类型
 add type Bmbim_project 
 	description 项目 
-	attribute Bmbim_project_id, Bmbim_project_name, Bmbim_project_type, Bmbim_project_manager, Bmbim_project_leader, Bmbim_project_phase, Bmbim_project_starttime, Bmbim_project_endtime, Bmbim_project_totalpercentage, Bmbim_project_yearpercentage, Bmbim_project_archiveid;
+	attribute Bmbim_project_id, Bmbim_project_name, Bmbim_project_type, Bmbim_project_manager, Bmbim_project_leader, Bmbim_project_phase, Bmbim_project_starttime, Bmbim_project_endtime, Bmbim_project_totalpercentage, Bmbim_project_yearpercentage, Bmbim_project_remark;
 	
 # 添加项目策略
 add policy Bmbim_project 
@@ -142,9 +143,9 @@ add form Bmbim_project web
 		setting "Registered Suite" "Framework"
 		setting "Field Type" "attribute"
 		setting "Editable" "true"
-	field name Bmbim_project_archiveid
-		label emxFramework.Attribute.Bmbim_project_archiveid
-		businessobject attribute[Bmbim_project_archiveid]
+	field name Bmbim_project_remark
+		label emxFramework.Attribute.Bmbim_project_remark
+		businessobject attribute[Bmbim_project_remark]
 		setting "Registered Suite" "Framework"
 		setting "Field Type" "attribute"
 		setting "Editable" "true";
@@ -214,9 +215,9 @@ add table Bmbim_project system
 		setting "Registered Suite" "Framework"
 		setting "Field Type" "attribute"
 		setting "Editable" "true"
-	column name Bmbim_project_archiveid
-		label emxFramework.Attribute.Bmbim_project_archiveid
-		businessobject attribute[Bmbim_project_archiveid]
+	column name Bmbim_project_remark
+		label emxFramework.Attribute.Bmbim_project_remark
+		businessobject attribute[Bmbim_project_remark]
 		setting "Registered Suite" "Framework"
 		setting "Field Type" "attribute"
 		setting "Editable" "true";

@@ -24,10 +24,14 @@ add attribute Bmbim_contract_clientsign
 
 add attribute Bmbim_contract_projectscale 
 	type string 
-	description 建筑规模 
+	description 建设规模 
 	range == 重大项目 
 	range == 一般项目 
 	range == 零小项目;
+
+add attribute Bmbim_contract_projectlevel
+	type string
+	description 建设量级;
 
 add attribute Bmbim_contract_type 
 	type string 
@@ -36,11 +40,28 @@ add attribute Bmbim_contract_type
 	range == 测量 
 	range == 港口
 	range == 航道
-	range == 枢纽;
+	range == 枢纽
+	range == 其它;
 
 add attribute Bmbim_contract_clientname 
 	type string 
 	description 业主名称;
+
+add attribute Bmbim_contract_contact
+	type string
+	description 业主联系人;
+
+add attribute Bmbim_contract_measure
+	type real
+	description 测量（万元）;
+
+add attribute Bmbim_contract_geology
+	type real
+	description 地址（万元）;
+
+add attribute Bmbim_contract_other
+	type real
+	description 其它（万元）;
 
 add attribute Bmbim_contract_meetingcharge
 	type real 
@@ -53,7 +74,7 @@ add attribute Bmbim_contract_totalamount
 # 添加合同类型
 add type Bmbim_contract 
 	description 合同 
-	attribute Bmbim_contract_id, Bmbim_contract_name, Bmbim_contract_signdate, Bmbim_contract_clientsign, Bmbim_contract_projectscale, Bmbim_contract_type, Bmbim_contract_clientname, Bmbim_contract_meetingcharge, Bmbim_contract_totalamount;
+	attribute Bmbim_contract_id, Bmbim_contract_name, Bmbim_contract_signdate, Bmbim_contract_clientsign, Bmbim_contract_projectscale, Bmbim_contract_projectlevel, Bmbim_contract_type, Bmbim_contract_clientname, Bmbim_contract_contact, Bmbim_contract_measure, Bmbim_contract_geology, Bmbim_contract_other, Bmbim_contract_meetingcharge, Bmbim_contract_totalamount;
 
 # 添加合同策略
 add policy Bmbim_contract 
@@ -123,6 +144,12 @@ add form Bmbim_contract web
 		setting "Editable" "true"
 		setting "Field Type" "attribute"
 		setting "Input Type" "combobox"
+	field name Bmbim_contract_projectlevel
+		label emxFramework.Attribute.Bmbim_contract_projectlevel
+		businessobject attribute[Bmbim_contract_projectlevel]
+		setting "Registered Suite" "Framework"
+		setting "Editable" "true"
+		setting "Field Type" "attribute"
 	field name Bmbim_contract_type
 		label emxFramework.Attribute.Bmbim_contract_type
 		businessobject attribute[Bmbim_contract_type]
@@ -133,6 +160,30 @@ add form Bmbim_contract web
 	field name Bmbim_contract_clientname
 		label emxFramework.Attribute.Bmbim_contract_clientname
 		businessobject attribute[Bmbim_contract_clientname]
+		setting "Registered Suite" "Framework"
+		setting "Editable" "true"
+		setting "Field Type" "attribute"
+	field name Bmbim_contract_contact
+		label emxFramework.Attribute.Bmbim_contract_contact
+		businessobject attribute[Bmbim_contract_contact]
+		setting "Registered Suite" "Framework"
+		setting "Editable" "true"
+		setting "Field Type" "attribute"
+	field name Bmbim_contract_measure
+		label emxFramework.Attribute.Bmbim_contract_measure
+		businessobject attribute[Bmbim_contract_measure]
+		setting "Registered Suite" "Framework"
+		setting "Editable" "true"
+		setting "Field Type" "attribute"
+	field name Bmbim_contract_geology
+		label emxFramework.Attribute.Bmbim_contract_geology
+		businessobject attribute[Bmbim_contract_geology]
+		setting "Registered Suite" "Framework"
+		setting "Editable" "true"
+		setting "Field Type" "attribute"
+	field name Bmbim_contract_other
+		label emxFramework.Attribute.Bmbim_contract_other
+		businessobject attribute[Bmbim_contract_other]
 		setting "Registered Suite" "Framework"
 		setting "Editable" "true"
 		setting "Field Type" "attribute"
@@ -206,6 +257,12 @@ add table Bmbim_contract system
 		setting "Editable" "false"
 		setting "Field Type" "attribute"
 		setting "Input Type" "combobox"
+	column name Bmbim_contract_projectlevel
+		label emxFramework.Attribute.Bmbim_contract_projectlevel
+		businessobject attribute[Bmbim_contract_projectlevel]
+		setting "Registered Suite" "Framework"
+		setting "Editable" "true"
+		setting "Field Type" "attribute"
 	column name Bmbim_contract_type
 		label emxFramework.Attribute.Bmbim_contract_type
 		businessobject attribute[Bmbim_contract_type]
@@ -218,6 +275,30 @@ add table Bmbim_contract system
 		businessobject attribute[Bmbim_contract_clientname]
 		setting "Registered Suite" "Framework"
 		setting "Editable" "false"
+		setting "Field Type" "attribute"
+	column name Bmbim_contract_contact
+		label emxFramework.Attribute.Bmbim_contract_contact
+		businessobject attribute[Bmbim_contract_contact]
+		setting "Registered Suite" "Framework"
+		setting "Editable" "true"
+		setting "Field Type" "attribute"
+	column name Bmbim_contract_measure
+		label emxFramework.Attribute.Bmbim_contract_measure
+		businessobject attribute[Bmbim_contract_measure]
+		setting "Registered Suite" "Framework"
+		setting "Editable" "true"
+		setting "Field Type" "attribute"
+	column name Bmbim_contract_geology
+		label emxFramework.Attribute.Bmbim_contract_geology
+		businessobject attribute[Bmbim_contract_geology]
+		setting "Registered Suite" "Framework"
+		setting "Editable" "true"
+		setting "Field Type" "attribute"
+	column name Bmbim_contract_other
+		label emxFramework.Attribute.Bmbim_contract_other
+		businessobject attribute[Bmbim_contract_other]
+		setting "Registered Suite" "Framework"
+		setting "Editable" "true"
 		setting "Field Type" "attribute"
 	column name Bmbim_contract_meetingcharge
 		label emxFramework.Attribute.Bmbim_contract_meetingcharge

@@ -43,8 +43,13 @@ del attribute Bmbim_contract_name;
 del attribute Bmbim_contract_signdate;
 del attribute Bmbim_contract_clientsign;
 del attribute Bmbim_contract_projectscale;
+del attribute Bmbim_contract_projectlevel;
 del attribute Bmbim_contract_type;
 del attribute Bmbim_contract_clientname;
+del attribute Bmbim_contract_contact;
+del attribute Bmbim_contract_measure;
+del attribute Bmbim_contract_geology;
+del attribute Bmbim_contract_other;
 del attribute Bmbim_contract_meetingcharge;
 del attribute Bmbim_contract_totalamount;
 
