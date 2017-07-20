@@ -53,6 +53,8 @@ del attribute Bmbim_contract_other;
 del attribute Bmbim_contract_meetingcharge;
 del attribute Bmbim_contract_totalamount;
 
+del program Bmbim_contract;
+
 # 删除分院领导、总院领导和业主
 modify role branchleader remove assign all;
 modify role generalleader remove assign all;

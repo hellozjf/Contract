@@ -1,5 +1,7 @@
 set context user creator;
 
+add program Bmbim_contract_states java file /home/webapp/jpo/Bmbim_contract_states.java;
+
 # 添加合同表格
 add table Bmbim_contract_states system 
 	column name Bmbim_contract_id
@@ -14,16 +16,23 @@ add table Bmbim_contract_states system
 		setting "Registered Suite" "Framework"
 		setting "Editable" "true"
 		setting "Field Type" "attribute"
+#	column name Bmbim_contract_state
+#		label emxFramework.Attribute.Bmbim_contract_state
+#		businessobject current
+#		setting "Registered Suite" "Framework"
+#		setting "Editable" "false"
+#		setting "Field Type" "basic"
 	column name Bmbim_contract_state
 		label emxFramework.Attribute.Bmbim_contract_state
-		businessobject current
 		setting "Registered Suite" "Framework"
 		setting "Editable" "false"
-		setting "Field Type" "basic"
+		setting "Column Type" "program"
+		setting "program" "Bmbim_contract"
+		setting "function" "getStatesI18N"
 	column name Bmbim_contract_dynamic
 		setting "Column Type" "Dynamic"
 		setting "Dynamic Column Program" "Bmbim_contract_states"
-		setting "Dynamic Column Function" "getDyanmicColumns"
+		setting "Dynamic Column Function" "getDyanmicColumns";
 #	column name Bmbim_contract_states_submit
 #		label emxFramework.Attribute.Bmbim_contract_states_submit
 #		href "${COMMON_DIR}/emxContractSubmit.jsp"

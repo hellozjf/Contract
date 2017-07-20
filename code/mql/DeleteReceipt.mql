@@ -37,6 +37,8 @@ del policy Bmbim_receipt;
 # 删除收据类型
 del type Bmbim_receipt;
 
+del program Bmbim_receipt;
+
 # 删除收据相关的属性
 del attribute Bmbim_receipt_invoice;
 del attribute Bmbim_receipt_remark;

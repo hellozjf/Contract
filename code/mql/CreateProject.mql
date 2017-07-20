@@ -1,5 +1,7 @@
 set context user creator;
 
+add program Bmbim_project java file Bmbim_project.java;
+
 # 添加项目相关的属性
 add attribute Bmbim_project_id 
 	description 项目编号
@@ -12,8 +14,8 @@ add attribute Bmbim_project_name
 add attribute Bmbim_project_type 
 	description 项目类型
 	type string 
-	range == 规划 
-	range == 测量 
+	range == 规划
+	range == 测量
 	range == 港口
 	range == 航道
 	range == 枢纽

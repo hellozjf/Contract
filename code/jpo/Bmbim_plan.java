@@ -13,12 +13,12 @@ import matrix.db.Context;
 import matrix.db.JPO;
 import matrix.util.StringList;
 
-// public class ${CLASSNAME} extends ${CLASS:emxDomainObject} {
-public class Bmbim_plan {
+public class ${CLASSNAME} extends ${CLASS:emxDomainObject} {
+//public class Bmbim_plan {
 
-    // public ${CLASSNAME}(Context context, String[] args) throws Exception {
-    // super(context, args);
-    // }
+    public ${CLASSNAME}(Context context, String[] args) throws Exception {
+     super(context, args);
+    }
 
     public Vector getOIDs(Context context, String[] args) throws Exception {
         // Get an object list which based on args.

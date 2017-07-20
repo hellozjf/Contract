@@ -34,6 +34,8 @@ del policy Bmbim_plan;
 # 删除项目类型
 del type Bmbim_plan;
 
+del program Bmbim_plan;
+
 # 删除项目相关的属性
 del attribute Bmbim_plan_totalpaymentpercentage;
 del attribute Bmbim_plan_actualtotalpayment;

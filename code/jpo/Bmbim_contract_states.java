@@ -2,26 +2,23 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.Vector;
 
 import com.matrixone.apps.domain.DomainConstants;
 import com.matrixone.apps.domain.DomainObject;
+import com.matrixone.apps.domain.util.EnoviaResourceBundle;
 import com.matrixone.apps.domain.util.MapList;
 
 import matrix.db.Context;
 import matrix.db.JPO;
 import matrix.db.Person;
-import matrix.db.Role;
-import matrix.db.RoleList;
-import matrix.util.StringList;
 
-// public class ${CLASSNAME} extends ${CLASS:emxDomainObject} {
-public class Bmbim_contract_states extends DomainObject {
+public class ${CLASSNAME} extends ${CLASS:emxDomainObject} {
+//public class Bmbim_contract_states extends DomainObject {
 
-    // public ${CLASSNAME}(Context context, String[] args) throws Exception {
-    // super(context, args);
-    // }
+    public ${CLASSNAME}(Context context, String[] args) throws Exception {
+     super(context, args);
+    }
 
     public Vector getOIDs(Context context, String[] args) throws Exception {
         // Get an object list which based on args.
@@ -211,7 +208,8 @@ public class Bmbim_contract_states extends DomainObject {
             Map map = (Map) iter.next();
             // Get object's id, and add it into the object array.
             String oid = (String) map.get(DomainConstants.SELECT_ID);
-            oids.addElement("Submit Contract");
+            String str = EnoviaResourceBundle.getFrameworkStringResourceProperty(context, "emxFramework.Attribute.Bmbim_contract_states_submit", context.getLocale());
+            oids.addElement(str);
         }
         // Return the object array.
         return oids;
@@ -230,7 +228,8 @@ public class Bmbim_contract_states extends DomainObject {
             Map map = (Map) iter.next();
             // Get object's id, and add it into the object array.
             String oid = (String) map.get(DomainConstants.SELECT_ID);
-            oids.addElement("Branchleader Approve");
+            String str = EnoviaResourceBundle.getFrameworkStringResourceProperty(context, "emxFramework.Attribute.Bmbim_contract_states_branchleader_approve", context.getLocale());
+            oids.addElement(str);
         }
         // Return the object array.
         return oids;
@@ -249,7 +248,8 @@ public class Bmbim_contract_states extends DomainObject {
             Map map = (Map) iter.next();
             // Get object's id, and add it into the object array.
             String oid = (String) map.get(DomainConstants.SELECT_ID);
-            oids.addElement("Branchleader Reject");
+            String str = EnoviaResourceBundle.getFrameworkStringResourceProperty(context, "emxFramework.Attribute.Bmbim_contract_states_branchleader_reject", context.getLocale());
+            oids.addElement(str);
         }
         // Return the object array.
         return oids;
@@ -268,7 +268,8 @@ public class Bmbim_contract_states extends DomainObject {
             Map map = (Map) iter.next();
             // Get object's id, and add it into the object array.
             String oid = (String) map.get(DomainConstants.SELECT_ID);
-            oids.addElement("Generalleader Approve");
+            String str = EnoviaResourceBundle.getFrameworkStringResourceProperty(context, "emxFramework.Attribute.Bmbim_contract_states_generalleader_approve", context.getLocale());
+            oids.addElement(str);
         }
         // Return the object array.
         return oids;
@@ -287,7 +288,8 @@ public class Bmbim_contract_states extends DomainObject {
             Map map = (Map) iter.next();
             // Get object's id, and add it into the object array.
             String oid = (String) map.get(DomainConstants.SELECT_ID);
-            oids.addElement("Generalleader Reject");
+            String str = EnoviaResourceBundle.getFrameworkStringResourceProperty(context, "emxFramework.Attribute.Bmbim_contract_states_generalleader_reject", context.getLocale());
+            oids.addElement(str);
         }
         // Return the object array.
         return oids;
@@ -306,7 +308,8 @@ public class Bmbim_contract_states extends DomainObject {
             Map map = (Map) iter.next();
             // Get object's id, and add it into the object array.
             String oid = (String) map.get(DomainConstants.SELECT_ID);
-            oids.addElement("Client Approve");
+            String str = EnoviaResourceBundle.getFrameworkStringResourceProperty(context, "emxFramework.Attribute.Bmbim_contract_states_client_approve", context.getLocale());
+            oids.addElement(str);
         }
         // Return the object array.
         return oids;
@@ -325,7 +328,8 @@ public class Bmbim_contract_states extends DomainObject {
             Map map = (Map) iter.next();
             // Get object's id, and add it into the object array.
             String oid = (String) map.get(DomainConstants.SELECT_ID);
-            oids.addElement("Client Reject");
+            String str = EnoviaResourceBundle.getFrameworkStringResourceProperty(context, "emxFramework.Attribute.Bmbim_contract_states_client_reject", context.getLocale());
+            oids.addElement(str);
         }
         // Return the object array.
         return oids;
@@ -344,7 +348,8 @@ public class Bmbim_contract_states extends DomainObject {
             Map map = (Map) iter.next();
             // Get object's id, and add it into the object array.
             String oid = (String) map.get(DomainConstants.SELECT_ID);
-            oids.addElement("Start Gathering");
+            String str = EnoviaResourceBundle.getFrameworkStringResourceProperty(context, "emxFramework.Attribute.Bmbim_contract_states_startgathering", context.getLocale());
+            oids.addElement(str);
         }
         // Return the object array.
         return oids;
@@ -363,7 +368,8 @@ public class Bmbim_contract_states extends DomainObject {
             Map map = (Map) iter.next();
             // Get object's id, and add it into the object array.
             String oid = (String) map.get(DomainConstants.SELECT_ID);
-            oids.addElement("Stop Gathering");
+            String str = EnoviaResourceBundle.getFrameworkStringResourceProperty(context, "emxFramework.Attribute.Bmbim_contract_states_stopgathering", context.getLocale());
+            oids.addElement(str);
         }
         // Return the object array.
         return oids;

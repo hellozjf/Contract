@@ -8,6 +8,8 @@ modify role branchleader assign person des1;
 modify role generalleader assign person des2;
 modify role client assign person des3;
 
+add program Bmbim_contract java file /home/webapp/jpo/Bmbim_contract.java;
+
 # 添加合同相关的属性
 add attribute Bmbim_contract_id 
 	type string 
@@ -28,8 +30,8 @@ add attribute Bmbim_contract_clientsign
 add attribute Bmbim_contract_projectscale 
 	type string 
 	description 建设规模 
-	range == 重大项目 
-	range == 一般项目 
+	range == 重大项目
+	range == 一般项目
 	range == 零小项目;
 
 add attribute Bmbim_contract_projectlevel
@@ -246,12 +248,19 @@ add table Bmbim_contract system
 		setting "Registered Suite" "Framework"
 		setting "Editable" "true"
 		setting "Field Type" "attribute"
+#	column name Bmbim_contract_state
+#		label emxFramework.Attribute.Bmbim_contract_state
+#		businessobject current
+#		setting "Registered Suite" "Framework"
+#		setting "Editable" "false"
+#		setting "Field Type" "basic"
 	column name Bmbim_contract_state
 		label emxFramework.Attribute.Bmbim_contract_state
-		businessobject current
 		setting "Registered Suite" "Framework"
 		setting "Editable" "false"
-		setting "Field Type" "basic"
+		setting "Column Type" "program"
+		setting "program" "Bmbim_contract"
+		setting "function" "getStatesI18N"
 	column name Bmbim_contract_received
 		label emxFramework.Attribute.Bmbim_contract_received
 		setting "Registered Suite" "Framework"

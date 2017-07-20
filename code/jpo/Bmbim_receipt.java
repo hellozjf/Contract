@@ -11,12 +11,12 @@ import com.matrixone.apps.domain.util.MapList;
 import matrix.db.Context;
 import matrix.db.JPO;
 
-// public class ${CLASSNAME} extends ${CLASS:emxDomainObject} {
-public class Bmbim_receipt extends DomainObject {
+public class ${CLASSNAME} extends ${CLASS:emxDomainObject} {
+//public class Bmbim_receipt extends DomainObject {
 
-    // public ${CLASSNAME}(Context context, String[] args) throws Exception {
-    // super(context, args);
-    // }
+    public ${CLASSNAME}(Context context, String[] args) throws Exception {
+     super(context, args);
+    }
 
     public Vector getOIDs(Context context, String[] args) throws Exception {
         // Get an object list which based on args.

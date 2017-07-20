@@ -37,6 +37,8 @@ del policy Bmbim_project;
 # 删除项目类型
 del type Bmbim_project;
 
+del program Bmbim_project;
+
 # 删除项目相关的属性
 del attribute Bmbim_project_remark;
 del attribute Bmbim_project_yearpercentage;
