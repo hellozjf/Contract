@@ -157,7 +157,7 @@ add table Bmbim_project system
 		businessobject attribute[Bmbim_project_id]
 		setting "Registered Suite" "Framework"
 		setting "Field Type" "attribute"
-		setting "Editable" "true"
+		setting "Editable" "false"
 	column name Bmbim_project_name
 		label emxFramework.Attribute.Bmbim_project_name
 		businessobject attribute[Bmbim_project_name]

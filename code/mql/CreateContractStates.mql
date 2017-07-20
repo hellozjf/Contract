@@ -1,0 +1,50 @@
+set context user creator;
+
+# 添加合同表格
+add table Bmbim_contract_states system 
+	column name Bmbim_contract_id
+		label emxFramework.Attribute.Bmbim_contract_id
+		businessobject attribute[Bmbim_contract_id]
+		setting "Registered Suite" "Framework"
+		setting "Editable" "false"
+		setting "Field Type" "attribute"
+	column name Bmbim_contract_name
+		label emxFramework.Attribute.Bmbim_contract_name
+		businessobject attribute[Bmbim_contract_name]
+		setting "Registered Suite" "Framework"
+		setting "Editable" "true"
+		setting "Field Type" "attribute"
+	column name Bmbim_contract_state
+		label emxFramework.Attribute.Bmbim_contract_state
+		businessobject current
+		setting "Registered Suite" "Framework"
+		setting "Editable" "false"
+		setting "Field Type" "basic"
+	column name Bmbim_contract_dynamic
+		setting "Column Type" "Dynamic"
+		setting "Dynamic Column Program" "Bmbim_contract_states"
+		setting "Dynamic Column Function" "getDyanmicColumns"
+#	column name Bmbim_contract_states_submit
+#		label emxFramework.Attribute.Bmbim_contract_states_submit
+#		href "${COMMON_DIR}/emxContractSubmit.jsp"
+#		setting "Registered Suite" "Framework"
+#		setting "Editable" "false"
+#		setting "Column Type" "program"
+#		setting "program" "Bmbim_contract_states"
+#		setting "function" "getSubmit"
+#	column name Bmbim_contract_states_branchleader_approve
+#		label emxFramework.Attribute.Bmbim_contract_states_branchleader_approve
+#		href "${COMMON_DIR}/emxBranchleaderContractApprove.jsp"
+#		setting "Registered Suite" "Framework"
+#		setting "Editable" "false"
+#		setting "Column Type" "program"
+#		setting "program" "Bmbim_contract_states"
+#		setting "function" "getBranchleaderApprove"
+#	column name Bmbim_contract_states_branchleader_reject
+#		label emxFramework.Attribute.Bmbim_contract_states_branchleader_reject
+#		href "${COMMON_DIR}/emxBranchleaderContractReject.jsp"
+#		setting "Registered Suite" "Framework"
+#		setting "Editable" "false"
+#		setting "Column Type" "program"
+#		setting "program" "Bmbim_contract_states"
+#		setting "function" "getBranchleaderReject";

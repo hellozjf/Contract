@@ -97,7 +97,7 @@ add table Bmbim_plan system
 		label emxFramework.Attribute.Bmbim_plan_id
 		businessobject attribute[Bmbim_plan_id]
 		setting "Registered Suite" "Framework"
-		setting "Editable" "true"
+		setting "Editable" "false"
 		setting "Field Type" "attribute"
 	column name Bmbim_plan_starttime
 		label emxFramework.Attribute.Bmbim_plan_starttime

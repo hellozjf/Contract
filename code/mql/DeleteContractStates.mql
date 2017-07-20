@@ -1,0 +1,4 @@
+set context user creator;
+
+# 删除合同表格
+del table Bmbim_contract_states system;

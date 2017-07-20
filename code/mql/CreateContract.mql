@@ -1,9 +1,12 @@
 set context user creator;
 
 # 增加分院领导、总院领导和业主，他们后面要传阅合同的
+#add role branchleader;
+#add role generalleader;
+#add role client;
 modify role branchleader assign person des1;
-modify role generalleader assign person des1;
-modify role client assign person des1;
+modify role generalleader assign person des2;
+modify role client assign person des3;
 
 # 添加合同相关的属性
 add attribute Bmbim_contract_id 
@@ -89,14 +92,41 @@ add policy Bmbim_contract
 		owner read,show 
 		public read,show 
 		user branchleader all
+		signature approve 
+			approve branchleader 
+			reject branchleader
+			branch contract_generalleader_review
+		signature reject 
+			approve branchleader 
+			reject branchleader
+			branch contract_info_input
+		notify branchleader message "Branch Leader Review"
 	state contract_generalleader_review 
 		owner read,show 
 		public read,show 
 		user generalleader all
+		signature approve 
+			approve generalleader 
+			reject generalleader
+			branch contract_client_review
+		signature reject 
+			approve generalleader 
+			reject generalleader
+			branch contract_info_input
+		notify generalleader message "General Leader Review"
 	state contract_client_review 
 		owner read,show 
 		public read,show 
 		user client all
+		signature approve 
+			approve client 
+			reject client
+			branch contract_official_signed
+		signature reject 
+			approve client 
+			reject client
+			branch contract_info_input
+		notify client message "Client Review"
 	state contract_official_signed 
 		owner all
 		public read,show 
@@ -214,7 +244,7 @@ add table Bmbim_contract system
 		label emxFramework.Attribute.Bmbim_contract_name
 		businessobject attribute[Bmbim_contract_name]
 		setting "Registered Suite" "Framework"
-		setting "Editable" "false"
+		setting "Editable" "true"
 		setting "Field Type" "attribute"
 	column name Bmbim_contract_state
 		label emxFramework.Attribute.Bmbim_contract_state
@@ -233,28 +263,28 @@ add table Bmbim_contract system
 		label emxFramework.Attribute.Bmbim_contract_totalamount
 		businessobject attribute[Bmbim_contract_totalamount]
 		setting "Registered Suite" "Framework"
-		setting "Editable" "false"
+		setting "Editable" "true"
 		setting "Field Type" "attribute"
 		setting "format" "numeric"
 	column name Bmbim_contract_signdate
 		label emxFramework.Attribute.Bmbim_contract_signdate
 		businessobject attribute[Bmbim_contract_signdate]
 		setting "Registered Suite" "Framework"
-		setting "Editable" "false"
+		setting "Editable" "true"
 		setting "Field Type" "attribute"
 		setting "format" "date"
 	column name Bmbim_contract_clientsign
 		label emxFramework.Attribute.Bmbim_contract_clientsign
 		businessobject attribute[Bmbim_contract_clientsign]
 		setting "Registered Suite" "Framework"
-		setting "Editable" "false"
+		setting "Editable" "true"
 		setting "Field Type" "attribute"
 		setting "format" "date"
 	column name Bmbim_contract_projectscale
 		label emxFramework.Attribute.Bmbim_contract_projectscale
 		businessobject attribute[Bmbim_contract_projectscale]
 		setting "Registered Suite" "Framework"
-		setting "Editable" "false"
+		setting "Editable" "true"
 		setting "Field Type" "attribute"
 		setting "Input Type" "combobox"
 	column name Bmbim_contract_projectlevel
@@ -267,14 +297,14 @@ add table Bmbim_contract system
 		label emxFramework.Attribute.Bmbim_contract_type
 		businessobject attribute[Bmbim_contract_type]
 		setting "Registered Suite" "Framework"
-		setting "Editable" "false"
+		setting "Editable" "true"
 		setting "Field Type" "attribute"
 		setting "Input Type" "combobox"
 	column name Bmbim_contract_clientname
 		label emxFramework.Attribute.Bmbim_contract_clientname
 		businessobject attribute[Bmbim_contract_clientname]
 		setting "Registered Suite" "Framework"
-		setting "Editable" "false"
+		setting "Editable" "true"
 		setting "Field Type" "attribute"
 	column name Bmbim_contract_contact
 		label emxFramework.Attribute.Bmbim_contract_contact
@@ -304,7 +334,7 @@ add table Bmbim_contract system
 		label emxFramework.Attribute.Bmbim_contract_meetingcharge
 		businessobject attribute[Bmbim_contract_meetingcharge]
 		setting "Registered Suite" "Framework"
-		setting "Editable" "false"
+		setting "Editable" "true"
 		setting "Field Type" "attribute"
 		setting "format" "numeric"
 	column name Bmbim_contract_receipts
@@ -325,11 +355,12 @@ add table Bmbim_contract system
 		setting "function" "getProjects"
 	column name Bmbim_contract_states
 		label emxFramework.Attribute.Bmbim_contract_states
+		href "${COMMON_DIR}/emxIndentedTable.jsp?program=Bmbim_contract:getCurrentContract&table=Bmbim_contract_states&freezePane=Bmbim_project_id&header=emxFramework.String.Bmbim_contract_header"
 		setting "Registered Suite" "Framework"
 		setting "Editable" "false"
 		setting "Column Type" "program"
 		setting "program" "Bmbim_contract"
-		setting "function" "getStates"
+		setting "function" "getStates";
 
 # 添加合同查询
 add inquiry Bmbim_contract

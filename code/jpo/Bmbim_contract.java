@@ -168,4 +168,18 @@ public class Bmbim_contract extends DomainObject {
                 true, (short) 0, null, null, 0);
         return mapList;
     }
+    
+    public MapList getCurrentContract(Context context, String[] args) throws Exception {
+        HashMap paramMap = (HashMap) JPO.unpackArgs(args);
+        String objectId = (String) paramMap.get("objectId");
+        DomainObject domainObject = DomainObject.newInstance(context, objectId);
+        String type = domainObject.getInfo(context, "type");
+        String name = domainObject.getInfo(context, "name");
+        String revision = domainObject.getInfo(context, "revision");
+        
+        StringList objectSelects = new StringList();
+        objectSelects.add(DomainConstants.SELECT_ID);
+        MapList mapList = DomainObject.findObjects(context, type, name, revision, "*", "*", "", false, objectSelects);
+        return mapList;
+    }
 }
