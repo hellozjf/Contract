@@ -1,6 +1,6 @@
 set context user creator;
 
-add program Bmbim_contract_states java file /home/webapp/jpo/Bmbim_contract_states.java;
+add program Bmbim_contract_states java file ../jpo/Bmbim_contract_states.java;
 
 # 添加合同表格
 add table Bmbim_contract_states system 

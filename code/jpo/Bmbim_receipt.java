@@ -36,6 +36,29 @@ public class ${CLASSNAME} extends ${CLASS:emxDomainObject} {
         // Return the object array.
         return oids;
     }
+    
+    public Vector getActualmoney(Context context, String[] args) throws Exception {
+        HashMap paramMap = (HashMap) JPO.unpackArgs(args);
+        MapList objectList = (MapList) paramMap.get("objectList");
+        
+        Vector actualmoney = new Vector(objectList.size());
+        for (Iterator iter = objectList.iterator(); iter.hasNext();) {
+            Map map = (Map) iter.next();
+            String oid = (String) map.get(DomainConstants.SELECT_ID);
+            DomainObject domainObject = DomainObject.newInstance(context, oid);
+            String watertransport = domainObject.getInfo(context, "Bmbim_receipt_watertransport");
+            String headoffice = domainObject.getInfo(context, "Bmbim_receipt_headoffice");
+            String ground = domainObject.getInfo(context, "Bmbim_receipt_ground");
+            String plan = domainObject.getInfo(context, "Bmbim_receipt_plan");
+            String echo = domainObject.getInfo(context, "Bmbim_receipt_echo");
+            String building = domainObject.getInfo(context, "Bmbim_receipt_building");
+            double actual = Double.parseDouble(watertransport) + Double.parseDouble(headoffice) +
+                    Double.parseDouble(ground) + Double.parseDouble(plan) +
+                    Double.parseDouble(echo) + Double.parseDouble(building);
+            actualmoney.addElement(String.valueOf(actual));
+        }
+        return actualmoney;
+    }
 
     public Object createAndConnect(Context context, String[] args) throws Exception {
         HashMap programMap = (HashMap) JPO.unpackArgs(args);

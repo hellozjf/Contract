@@ -1,0 +1,10 @@
+mql -k DeleteContract.mql 
+mql -k DeleteContractStates.mql
+mql -k DeletePlan.mql
+mql -k DeleteProject.mql
+mql -k DeleteReceipt.mql
+mql -k CreateContract.mql
+mql -k CreateContractStates.mql
+mql -k CreatePlan.mql
+mql -k CreateProject.mql
+mql -k CreateReceipt.mql

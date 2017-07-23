@@ -1,6 +1,6 @@
 set context user creator;
 
-add program Bmbim_project java file Bmbim_project.java;
+add program Bmbim_project java file ../jpo/Bmbim_project.java;
 
 # 添加项目相关的属性
 add attribute Bmbim_project_id 

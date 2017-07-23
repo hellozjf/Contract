@@ -1,5 +1,7 @@
 set context user creator;
 
+add program Bmbim_receipt java file ../jpo/Bmbim_receipt.java;
+
 # 添加收款项相关的属性
 add attribute Bmbim_receipt_id 
 	type string 
@@ -31,6 +33,30 @@ add attribute Bmbim_receipt_actualdate
 	type date 
 	description 实际收款时间;
 
+add attribute Bmbim_receipt_watertransport
+	type real
+	description 水运实收;
+
+add attribute Bmbim_receipt_headoffice
+	type real
+	description 总公司;
+
+add attribute Bmbim_receipt_ground
+	type real
+	description 岩土;
+
+add attribute Bmbim_receipt_plan
+	type real
+	description 规划;
+
+add attribute Bmbim_receipt_echo
+	type real
+	description 双象;
+
+add attribute Bmbim_receipt_building
+	type real
+	description 建筑;
+
 add attribute Bmbim_receipt_remark
 	type string 
 	description 收款项备注
@@ -44,7 +70,7 @@ add attribute Bmbim_receipt_invoice
 # 添加收款项类型
 add type Bmbim_receipt 
 	description 收款项 
-	attribute Bmbim_receipt_id, Bmbim_receipt_type, Bmbim_receipt_planmoney, Bmbim_receipt_plandate, Bmbim_receipt_actualmoney, Bmbim_receipt_actualdate, Bmbim_receipt_remark, Bmbim_receipt_invoice;
+	attribute Bmbim_receipt_id, Bmbim_receipt_type, Bmbim_receipt_planmoney, Bmbim_receipt_plandate, Bmbim_receipt_actualmoney, Bmbim_receipt_actualdate, Bmbim_receipt_watertransport, Bmbim_receipt_headoffice, Bmbim_receipt_ground, Bmbim_receipt_plan, Bmbim_receipt_echo, Bmbim_receipt_building, Bmbim_receipt_remark, Bmbim_receipt_invoice;
 
 # 添加收款项策略
 add policy Bmbim_receipt 
@@ -97,9 +123,51 @@ add form Bmbim_receipt web
 		setting "Editable" "true"
 		setting "Field Type" "attribute"
 		setting "format" "date"
-	field name Bmbim_receipt_actualmoney
-		label emxFramework.Attribute.Bmbim_receipt_actualmoney
-		businessobject attribute[Bmbim_receipt_actualmoney]
+#	field name Bmbim_receipt_actualmoney
+#		label emxFramework.Attribute.Bmbim_receipt_actualmoney
+#		businessobject attribute[Bmbim_receipt_actualmoney]
+#		setting "Registered Suite" "Framework"
+#		setting "Editable" "true"
+#		setting "Field Type" "attribute"
+#		setting "format" "numeric"
+	field name Bmbim_receipt_watertransport
+		label emxFramework.Attribute.Bmbim_receipt_watertransport
+		businessobject attribute[Bmbim_receipt_watertransport]
+		setting "Registered Suite" "Framework"
+		setting "Editable" "true"
+		setting "Field Type" "attribute"
+		setting "format" "numeric"
+	field name Bmbim_receipt_headoffice
+		label emxFramework.Attribute.Bmbim_receipt_headoffice
+		businessobject attribute[Bmbim_receipt_headoffice]
+		setting "Registered Suite" "Framework"
+		setting "Editable" "true"
+		setting "Field Type" "attribute"
+		setting "format" "numeric"
+	field name Bmbim_receipt_ground
+		label emxFramework.Attribute.Bmbim_receipt_ground
+		businessobject attribute[Bmbim_receipt_ground]
+		setting "Registered Suite" "Framework"
+		setting "Editable" "true"
+		setting "Field Type" "attribute"
+		setting "format" "numeric"
+	field name Bmbim_receipt_plan
+		label emxFramework.Attribute.Bmbim_receipt_plan
+		businessobject attribute[Bmbim_receipt_plan]
+		setting "Registered Suite" "Framework"
+		setting "Editable" "true"
+		setting "Field Type" "attribute"
+		setting "format" "numeric"
+	field name Bmbim_receipt_echo
+		label emxFramework.Attribute.Bmbim_receipt_echo
+		businessobject attribute[Bmbim_receipt_echo]
+		setting "Registered Suite" "Framework"
+		setting "Editable" "true"
+		setting "Field Type" "attribute"
+		setting "format" "numeric"
+	field name Bmbim_receipt_building
+		label emxFramework.Attribute.Bmbim_receipt_building
+		businessobject attribute[Bmbim_receipt_building]
 		setting "Registered Suite" "Framework"
 		setting "Editable" "true"
 		setting "Field Type" "attribute"
@@ -143,11 +211,17 @@ add table Bmbim_receipt system
 		setting "Input Type" "combobox"
 	column name Bmbim_receipt_planmoney
 		label emxFramework.Attribute.Bmbim_receipt_planmoney
-		businessobject attribute[Bmbim_receipt_planmoney]
 		setting "Registered Suite" "Framework"
-		setting "Editable" "true"
-		setting "Field Type" "attribute"
-		setting "format" "numeric"
+		setting "Editable" "false"
+		setting "Column Type" "program"
+		setting "program" "Bmbim_receipt"
+		setting "function" "getActualmoney"
+#		label emxFramework.Attribute.Bmbim_receipt_planmoney
+#		businessobject attribute[Bmbim_receipt_planmoney]
+#		setting "Registered Suite" "Framework"
+#		setting "Editable" "true"
+#		setting "Field Type" "attribute"
+#		setting "format" "numeric"
 	column name Bmbim_receipt_plandate
 		label emxFramework.Attribute.Bmbim_receipt_plandate
 		businessobject attribute[Bmbim_receipt_plandate]
@@ -169,6 +243,48 @@ add table Bmbim_receipt system
 		setting "Editable" "true"
 		setting "Field Type" "attribute"
 		setting "format" "date"
+	column name Bmbim_receipt_watertransport
+		label emxFramework.Attribute.Bmbim_receipt_watertransport
+		businessobject attribute[Bmbim_receipt_watertransport]
+		setting "Registered Suite" "Framework"
+		setting "Editable" "true"
+		setting "Field Type" "attribute"
+		setting "format" "numeric"
+	column name Bmbim_receipt_headoffice
+		label emxFramework.Attribute.Bmbim_receipt_headoffice
+		businessobject attribute[Bmbim_receipt_headoffice]
+		setting "Registered Suite" "Framework"
+		setting "Editable" "true"
+		setting "Field Type" "attribute"
+		setting "format" "numeric"
+	column name Bmbim_receipt_ground
+		label emxFramework.Attribute.Bmbim_receipt_ground
+		businessobject attribute[Bmbim_receipt_ground]
+		setting "Registered Suite" "Framework"
+		setting "Editable" "true"
+		setting "Field Type" "attribute"
+		setting "format" "numeric"
+	column name Bmbim_receipt_plan
+		label emxFramework.Attribute.Bmbim_receipt_plan
+		businessobject attribute[Bmbim_receipt_plan]
+		setting "Registered Suite" "Framework"
+		setting "Editable" "true"
+		setting "Field Type" "attribute"
+		setting "format" "numeric"
+	column name Bmbim_receipt_echo
+		label emxFramework.Attribute.Bmbim_receipt_echo
+		businessobject attribute[Bmbim_receipt_echo]
+		setting "Registered Suite" "Framework"
+		setting "Editable" "true"
+		setting "Field Type" "attribute"
+		setting "format" "numeric"
+	column name Bmbim_receipt_building
+		label emxFramework.Attribute.Bmbim_receipt_building
+		businessobject attribute[Bmbim_receipt_building]
+		setting "Registered Suite" "Framework"
+		setting "Editable" "true"
+		setting "Field Type" "attribute"
+		setting "format" "numeric"
 	column name Bmbim_receipt_remark
 		label emxFramework.Attribute.Bmbim_receipt_remark
 		businessobject attribute[Bmbim_receipt_remark]

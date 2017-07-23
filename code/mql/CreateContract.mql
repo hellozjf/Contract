@@ -8,7 +8,7 @@ modify role branchleader assign person des1;
 modify role generalleader assign person des2;
 modify role client assign person des3;
 
-add program Bmbim_contract java file /home/webapp/jpo/Bmbim_contract.java;
+add program Bmbim_contract java file ../jpo/Bmbim_contract.java;
 
 # 添加合同相关的属性
 add attribute Bmbim_contract_id 

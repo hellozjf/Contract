@@ -1,6 +1,6 @@
 set context user creator;
 
-add program Bmbim_plan java file /home/webapp/jpo/Bmbim_plan.java;
+add program Bmbim_plan java file ../jpo/Bmbim_plan.java;
 
 # 添加计划相关的属性
 add attribute Bmbim_plan_id 
