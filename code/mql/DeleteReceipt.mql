@@ -42,6 +42,12 @@ del program Bmbim_receipt;
 # 删除收据相关的属性
 del attribute Bmbim_receipt_invoice;
 del attribute Bmbim_receipt_remark;
+del attribute Bmbim_receipt_watertransport;
+del attribute Bmbim_receipt_headoffice;
+del attribute Bmbim_receipt_ground;
+del attribute Bmbim_receipt_plan;
+del attribute Bmbim_receipt_echo;
+del attribute Bmbim_receipt_building;
 del attribute Bmbim_receipt_actualdate;
 del attribute Bmbim_receipt_actualmoney;
 del attribute Bmbim_receipt_plandate;
