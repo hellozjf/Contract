@@ -210,18 +210,18 @@ add table Bmbim_receipt system
 		setting "Field Type" "attribute"
 		setting "Input Type" "combobox"
 	column name Bmbim_receipt_planmoney
-		label emxFramework.Attribute.Bmbim_receipt_planmoney
-		setting "Registered Suite" "Framework"
-		setting "Editable" "false"
-		setting "Column Type" "program"
-		setting "program" "Bmbim_receipt"
-		setting "function" "getActualmoney"
 #		label emxFramework.Attribute.Bmbim_receipt_planmoney
-#		businessobject attribute[Bmbim_receipt_planmoney]
 #		setting "Registered Suite" "Framework"
-#		setting "Editable" "true"
-#		setting "Field Type" "attribute"
-#		setting "format" "numeric"
+#		setting "Editable" "false"
+#		setting "Column Type" "program"
+#		setting "program" "Bmbim_receipt"
+#		setting "function" "getActualmoney"
+		label emxFramework.Attribute.Bmbim_receipt_planmoney
+		businessobject attribute[Bmbim_receipt_planmoney]
+		setting "Registered Suite" "Framework"
+		setting "Editable" "true"
+		setting "Field Type" "attribute"
+		setting "format" "numeric"
 	column name Bmbim_receipt_plandate
 		label emxFramework.Attribute.Bmbim_receipt_plandate
 		businessobject attribute[Bmbim_receipt_plandate]
@@ -231,11 +231,17 @@ add table Bmbim_receipt system
 		setting "format" "date"
 	column name Bmbim_receipt_actualmoney
 		label emxFramework.Attribute.Bmbim_receipt_actualmoney
-		businessobject attribute[Bmbim_receipt_actualmoney]
 		setting "Registered Suite" "Framework"
-		setting "Editable" "true"
-		setting "Field Type" "attribute"
-		setting "format" "numeric"
+		setting "Editable" "false"
+		setting "Column Type" "program"
+		setting "program" "Bmbim_receipt"
+		setting "function" "getActualmoney"
+#		label emxFramework.Attribute.Bmbim_receipt_actualmoney
+#		businessobject attribute[Bmbim_receipt_actualmoney]
+#		setting "Registered Suite" "Framework"
+#		setting "Editable" "true"
+#		setting "Field Type" "attribute"
+#		setting "format" "numeric"
 	column name Bmbim_receipt_actualdate
 		label emxFramework.Attribute.Bmbim_receipt_actualdate
 		businessobject attribute[Bmbim_receipt_actualdate]

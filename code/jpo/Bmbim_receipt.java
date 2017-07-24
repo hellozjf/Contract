@@ -46,12 +46,36 @@ public class ${CLASSNAME} extends ${CLASS:emxDomainObject} {
             Map map = (Map) iter.next();
             String oid = (String) map.get(DomainConstants.SELECT_ID);
             DomainObject domainObject = DomainObject.newInstance(context, oid);
-            String watertransport = domainObject.getInfo(context, "Bmbim_receipt_watertransport");
-            String headoffice = domainObject.getInfo(context, "Bmbim_receipt_headoffice");
-            String ground = domainObject.getInfo(context, "Bmbim_receipt_ground");
-            String plan = domainObject.getInfo(context, "Bmbim_receipt_plan");
-            String echo = domainObject.getInfo(context, "Bmbim_receipt_echo");
-            String building = domainObject.getInfo(context, "Bmbim_receipt_building");
+            String watertransport = domainObject.getInfo(context, "attribute[Bmbim_receipt_watertransport]");
+            String headoffice = domainObject.getInfo(context, "attribute[Bmbim_receipt_headoffice]");
+            String ground = domainObject.getInfo(context, "attribute[Bmbim_receipt_ground]");
+            String plan = domainObject.getInfo(context, "attribute[Bmbim_receipt_plan]");
+            String echo = domainObject.getInfo(context, "attribute[Bmbim_receipt_echo]");
+            String building = domainObject.getInfo(context, "attribute[Bmbim_receipt_building]");
+            if (watertransport == null) {
+                watertransport = "0";
+            }
+            if (headoffice == null) {
+                headoffice = "0";
+            }
+            if (ground == null) {
+                ground = "0";
+            }
+            if (plan == null) {
+                plan = "0";
+            }
+            if (echo == null) {
+                echo = "0";
+            }
+            if (building == null) {
+                building = "0";
+            }
+            System.out.println("watertransport:" + watertransport +
+                    " headoffice:" + headoffice +
+                    " ground:" + ground +
+                    " plan:" + plan +
+                    " echo:" + echo +
+                    " building: " + building);
             double actual = Double.parseDouble(watertransport) + Double.parseDouble(headoffice) +
                     Double.parseDouble(ground) + Double.parseDouble(plan) +
                     Double.parseDouble(echo) + Double.parseDouble(building);
